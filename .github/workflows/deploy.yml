@@ -5,14 +5,21 @@ on:
     branches: [main]
   workflow_dispatch:
 
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v6
         with:
           submodules: true
           fetch-depth: 0
@@ -23,17 +30,30 @@ jobs:
           hugo-version: latest
           extended: true
 
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v6
+
       - name: Build
-        run: hugo --minify
+        run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          cname: ""
+          path: ./public
 
-      # ── Uncomment and configure after GitHub Pages validation ──────────────
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
+
+      # ── Uncomment and configure for mijn.host FTP deploy ──────────────────
       # - name: Deploy to mijn.host
       #   uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       #   with:
