@@ -1,0 +1,71 @@
+{{/* layouts/howto/list.html
+     HowTo section — titles grouped by front matter `group` param */}}
+{{ define "main" }}
+  {{ .Scratch.Set "scope" "list" }}
+
+  {{/* Hero */}}
+  {{ if site.Params.list.showHero | default false }}
+    {{ $heroStyle := print "hero/" site.Params.list.heroStyle ".html" }}
+    {{ if templates.Exists ( printf "partials/%s" $heroStyle ) }}
+      {{ partial $heroStyle . }}
+    {{ else }}
+      {{ partial "hero/basic.html" . }}
+    {{ end }}
+  {{ end }}
+
+  {{/* Header */}}
+  <header>
+    <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title }}</h1>
+    {{ with .Description }}
+      <p class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  {{ if gt (len .Pages) 0 }}
+    {{/* Group by the `group` front matter param; ungrouped pages fall under "" */}}
+    {{ $grouped := .Pages.GroupByParam "group" }}
+
+    <div class="mt-6 space-y-8">
+      {{ range $grouped }}
+        {{/* Group heading */}}
+        <div class="howto-group">
+          {{ if .Key }}
+            <h2 class="flex items-center gap-2 mb-1
+                       text-sm font-bold tracking-widest uppercase
+                       text-primary-600 dark:text-primary-400">
+              <span class="inline-block w-5 border-t-2 border-primary-400 dark:border-primary-600"></span>
+              {{ .Key }}
+              <span class="flex-1 border-t border-neutral-200 dark:border-neutral-700 ms-1"></span>
+            </h2>
+          {{ end }}
+
+          {{/* Article rows */}}
+          <div class="divide-y divide-neutral-100 dark:divide-neutral-800">
+            {{ range .Pages }}
+              <a href="{{ .RelPermalink }}"
+                 class="howto-row flex items-center gap-3 py-2.5 group
+                        text-neutral-800 dark:text-neutral
+                        hover:text-primary-600 dark:hover:text-primary-400
+                        no-underline transition-colors duration-150">
+                <span class="flex-shrink-0 text-neutral-300 dark:text-neutral-600
+                             group-hover:text-primary-500 dark:group-hover:text-primary-400
+                             transition-colors duration-150">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+                    <path fill-rule="evenodd"
+                          d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                          clip-rule="evenodd"/>
+                  </svg>
+                </span>
+                <span class="font-medium text-base leading-snug">{{ .Title | emojify }}</span>
+              </a>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  {{ else }}
+    <p class="mt-10 text-neutral-500 dark:text-neutral-400 italic">No guides yet.</p>
+  {{ end }}
+
+  {{ partial "pagination.html" . }}
+{{ end }}

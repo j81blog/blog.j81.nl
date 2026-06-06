@@ -1,0 +1,683 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   custom.css — JOBICO brand theme for blog.j81.nl (Blowfish / Hugo)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Self-hosted Montserrat ───────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/montserrat/Montserrat-400.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/montserrat/Montserrat-400-italic.woff2') format('woff2');
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/montserrat/Montserrat-500.woff2') format('woff2');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/montserrat/Montserrat-600.woff2') format('woff2');
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/montserrat/Montserrat-700.woff2') format('woff2');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+/* ── Brand tokens (hex convenience vars) ─────────────────────────────────── */
+
+:root {
+  --font-sans: 'Montserrat', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* JOBICO palette */
+  --jb-navy:   #0A2E50;
+  --jb-blue:   #1C7CD5;
+  --jb-sky:    #6BB9E8;
+  --jb-ice:    #B2EBF2;
+  --jb-green:  #4CAF50;
+  --jb-lime:   #8BC34A;
+  --jb-mint:   #C2E6C9;
+  --jb-taupe:  #8D7B65;
+
+  /* Derived */
+  --jb-blue-glow:   rgba(28, 124, 213, 0.35);
+  --jb-sky-glow:    rgba(107, 185, 232, 0.25);
+  --jb-green-glow:  rgba(76, 175, 80, 0.30);
+
+  /* Transitions */
+  --t-fast: 150ms ease;
+  --t-med:  250ms ease;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   1. GLOBAL BACKGROUND & BASE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+html:not(.dark) body {
+  background-color: #eef4fb;
+  background-image:
+    radial-gradient(ellipse 80% 40% at 50% -10%, rgba(107,185,232,0.12) 0%, transparent 60%);
+}
+
+html.dark body {
+  background-color: #04101e;
+  background-image:
+    radial-gradient(ellipse 80% 40% at 50% -5%, rgba(28,124,213,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 30% at 90% 100%, rgba(10,46,80,0.25) 0%, transparent 50%);
+}
+
+/* Subtle noise texture in dark mode for depth */
+html.dark body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   2. HERO / BANNER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Gradient overlay on hero images — works for homepage + article heroes */
+.relative > img[class*="h-"],
+[style*="background-image"] {
+  filter: brightness(0.72) saturate(1.15);
+}
+
+/* Homepage hero overlay gradient */
+.homepage-hero,
+[class*="homepage"] .relative {
+  position: relative;
+}
+
+/* Dark-mode hero overlay: navy → transparent */
+html.dark .noscript-fallback,
+html.dark [class*="hero"] > .absolute,
+html.dark [class*="background"] > .absolute {
+  background: linear-gradient(
+    160deg,
+    rgba(4,16,34,0.70) 0%,
+    rgba(10,46,80,0.45) 40%,
+    rgba(28,124,213,0.15) 80%,
+    transparent 100%
+  ) !important;
+}
+
+/* Hero text container: glassmorphism pill */
+html.dark [id*="header"] .relative > div,
+html.dark .homepage-hero .absolute > div {
+  background: rgba(4, 16, 34, 0.55);
+  backdrop-filter: blur(12px) saturate(1.4);
+  -webkit-backdrop-filter: blur(12px) saturate(1.4);
+  border: 1px solid rgba(107, 185, 232, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(178, 235, 242, 0.08);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   3. NAVIGATION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Nav bar: glass effect in dark, clean in light */
+header nav,
+#header-nav {
+  border-bottom: 1px solid rgba(107, 185, 232, 0.10);
+  transition: background var(--t-med), box-shadow var(--t-med);
+}
+
+html.dark header nav,
+html.dark #header-nav {
+  background: rgba(4, 16, 34, 0.80) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(107, 185, 232, 0.12), 0 4px 20px rgba(0,0,0,0.3);
+}
+
+html:not(.dark) header nav,
+html:not(.dark) #header-nav {
+  background: rgba(238, 244, 251, 0.90) !important;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(28, 124, 213, 0.10), 0 2px 12px rgba(10,46,80,0.06);
+}
+
+/* Active nav link indicator */
+nav a[aria-current="page"],
+nav a.active {
+  color: var(--jb-sky) !important;
+  font-weight: 600;
+  position: relative;
+}
+
+nav a[aria-current="page"]::after,
+nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--jb-blue), var(--jb-sky));
+  border-radius: 1px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   4. TYPOGRAPHY
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Site title */
+.site-title,
+[class*="site-title"] {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(120deg, var(--jb-blue) 20%, var(--jb-sky) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Author headline on profile cards */
+.author-headline,
+[class*="headline"] {
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.72em;
+  font-weight: 600;
+  color: rgba(var(--color-primary-400), 0.85);
+}
+
+/* Article headings */
+.prose h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: rgba(var(--color-primary-800), 1);
+}
+
+html.dark .prose h1 {
+  color: rgba(var(--color-primary-200), 1);
+}
+
+.prose h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  border-left: 3px solid var(--jb-blue);
+  padding-left: 0.65em;
+  margin-top: 2em;
+  color: rgba(var(--color-primary-700), 1);
+}
+
+html.dark .prose h2 {
+  border-left-color: var(--jb-sky);
+  color: rgba(var(--color-primary-200), 1);
+}
+
+.prose h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  padding-left: 0.4em;
+  border-left: 2px solid rgba(107, 185, 232, 0.55);
+  color: rgba(var(--color-primary-600), 1);
+}
+
+html.dark .prose h3 {
+  color: rgba(var(--color-primary-300), 1);
+}
+
+
+/* Body text readability */
+.prose p,
+.prose li {
+  line-height: 1.75;
+  font-size: 0.96rem;
+}
+
+/* Blockquotes */
+.prose blockquote {
+  border-left: 4px solid var(--jb-sky);
+  background: rgba(107, 185, 232, 0.06);
+  border-radius: 0 8px 8px 0;
+  padding: 0.8em 1.2em;
+  font-style: italic;
+  color: rgba(var(--color-neutral-600), 1);
+}
+
+html.dark .prose blockquote {
+  background: rgba(28, 124, 213, 0.08);
+  color: rgba(var(--color-neutral-300), 1);
+}
+
+/* Inline links */
+.prose a {
+  color: var(--jb-blue);
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(28,124,213,0.35);
+  transition: color var(--t-fast), text-decoration-color var(--t-fast);
+}
+
+.prose a:hover {
+  color: var(--jb-sky);
+  text-decoration-color: var(--jb-sky);
+}
+
+html.dark .prose a {
+  color: var(--jb-sky);
+  text-decoration-color: rgba(107,185,232,0.35);
+}
+
+html.dark .prose a:hover {
+  color: var(--jb-ice);
+  text-decoration-color: var(--jb-ice);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   5. ARTICLE CARDS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.article-link--card {
+  border-radius: 14px !important;
+  transition: transform var(--t-med), box-shadow var(--t-med), border-color var(--t-med);
+  border: 1px solid transparent;
+  overflow: hidden;
+}
+
+html:not(.dark) .article-link--card {
+  background: #ffffff;
+  border-color: rgba(28, 124, 213, 0.10);
+  box-shadow: 0 2px 8px rgba(10, 46, 80, 0.06);
+}
+
+html.dark .article-link--card {
+  background: rgba(8, 34, 62, 0.70);
+  border-color: rgba(107, 185, 232, 0.10);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.30);
+  backdrop-filter: blur(8px);
+}
+
+.article-link--card:hover {
+  transform: translateY(-4px);
+}
+
+html:not(.dark) .article-link--card:hover {
+  border-color: rgba(28, 124, 213, 0.30);
+  box-shadow: 0 8px 28px rgba(10, 46, 80, 0.12), 0 0 0 1px rgba(28,124,213,0.12);
+}
+
+html.dark .article-link--card:hover {
+  border-color: rgba(107, 185, 232, 0.28);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 0 0 1px rgba(107,185,232,0.15),
+              0 0 20px rgba(28,124,213,0.12);
+}
+
+/* Card title gradient on hover */
+.article-link--card:hover .font-bold,
+.article-link--card:hover h2 {
+  background: linear-gradient(120deg, var(--jb-blue), var(--jb-sky));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card image brightness */
+.article-link--card img {
+  transition: transform 400ms ease, filter 400ms ease;
+  filter: brightness(0.90) saturate(1.1);
+}
+
+.article-link--card:hover img {
+  transform: scale(1.04);
+  filter: brightness(1.0) saturate(1.2);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   6. CODE BLOCKS — TERMINAL AESTHETIC
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Dark mode: near-black with cyan accents */
+html.dark .prose pre {
+  background: #020d1a !important;
+  border: 1px solid rgba(107, 185, 232, 0.14);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.50), inset 0 1px 0 rgba(178,235,242,0.04);
+  position: relative;
+}
+
+/* Terminal dots decoration */
+html.dark .prose pre::before {
+  content: '● ● ●';
+  display: block;
+  color: rgba(107,185,232,0.30);
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  margin-bottom: 0.6em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid rgba(107,185,232,0.08);
+  font-family: monospace;
+}
+
+html:not(.dark) .prose pre {
+  background: #f3f7fd !important;
+  border: 1px solid rgba(28, 124, 213, 0.14);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(10,46,80,0.06);
+}
+
+/* Inline code */
+html.dark .prose code:not(pre code) {
+  background: rgba(28, 124, 213, 0.14);
+  color: var(--jb-ice);
+  border: 1px solid rgba(107,185,232,0.18);
+  border-radius: 5px;
+  padding: 0.1em 0.4em;
+  font-size: 0.875em;
+}
+
+html:not(.dark) .prose code:not(pre code) {
+  background: rgba(28, 124, 213, 0.07);
+  color: #0a4a8c;
+  border: 1px solid rgba(28,124,213,0.15);
+  border-radius: 5px;
+  padding: 0.1em 0.4em;
+  font-size: 0.875em;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   7. TABLE OF CONTENTS
+   Target only #TOCView (the <details>) — never the .toc wrapper div,
+   which uses -ms-5/ps-5 negative-margin tricks that break if padding changes.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#TOCView {
+  border-left: 3px solid rgba(28,124,213,0.30);
+  border-radius: 0 8px 8px 0;
+}
+
+html.dark #TOCView {
+  border-left-color: var(--jb-sky);
+  background: rgba(8,34,62,0.35);
+}
+
+html:not(.dark) #TOCView {
+  border-left-color: var(--jb-blue);
+  background: rgba(235,247,255,0.50);
+}
+
+/* Style the links inside the TOC */
+#TableOfContents a {
+  color: rgba(var(--color-primary-600), 1);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color var(--t-fast);
+}
+
+#TableOfContents a:hover {
+  color: var(--jb-blue);
+}
+
+html.dark #TableOfContents a {
+  color: rgba(var(--color-primary-300), 1);
+}
+
+html.dark #TableOfContents a:hover {
+  color: var(--jb-sky);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   8. TAGS / BADGES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.tag,
+[class*="tag"],
+.prose a[href*="/tags/"],
+.prose a[href*="/categories/"],
+.article-tags a,
+.article-categories a {
+  border-radius: 20px !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2em 0.75em !important;
+  transition: background var(--t-fast), color var(--t-fast), box-shadow var(--t-fast);
+}
+
+html.dark .tag,
+html.dark [class*="tag"],
+html.dark .article-tags a,
+html.dark .article-categories a {
+  background: rgba(28,124,213,0.15) !important;
+  color: var(--jb-sky) !important;
+  border: 1px solid rgba(107,185,232,0.22) !important;
+}
+
+html.dark .tag:hover,
+html.dark [class*="tag"]:hover {
+  background: rgba(28,124,213,0.28) !important;
+  box-shadow: 0 0 12px rgba(107,185,232,0.20);
+}
+
+html:not(.dark) .tag,
+html:not(.dark) [class*="tag"],
+html:not(.dark) .article-tags a,
+html:not(.dark) .article-categories a {
+  background: rgba(28,124,213,0.09) !important;
+  color: var(--jb-blue) !important;
+  border: 1px solid rgba(28,124,213,0.20) !important;
+}
+
+html:not(.dark) .tag:hover,
+html:not(.dark) [class*="tag"]:hover {
+  background: rgba(28,124,213,0.18) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   9. BUTTONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.btn,
+[class*="button"],
+button:not([class*="theme"]):not([class*="search"]):not([class*="menu"]) {
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: background var(--t-fast), box-shadow var(--t-fast), transform var(--t-fast);
+}
+
+/* Primary button */
+.btn-primary,
+[class*="btn-primary"] {
+  background: linear-gradient(135deg, var(--jb-blue) 0%, #1568b8 100%);
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(28,124,213,0.35);
+}
+
+.btn-primary:hover,
+[class*="btn-primary"]:hover {
+  background: linear-gradient(135deg, #2088e0 0%, var(--jb-blue) 100%);
+  box-shadow: 0 4px 16px rgba(28,124,213,0.50);
+  transform: translateY(-1px);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   10. ARTICLE PAGE LAYOUT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (min-width: 1024px) {
+  #single_header,
+  .article-content {
+    max-width: 920px;
+  }
+}
+
+/* Article metadata (date, reading time, tags row) */
+[class*="article-meta"],
+.article-meta {
+  opacity: 0.80;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+
+/* Horizontal rule */
+.prose hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(107,185,232,0.35), transparent);
+  margin: 2.5em 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   11. HOWTO SECTION — GREEN ACCENT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+body.section-howto .prose h2 {
+  border-left-color: var(--jb-green);
+}
+
+html.dark body.section-howto .prose h2 {
+  border-left-color: var(--jb-lime);
+  color: rgba(var(--color-secondary-200), 1);
+}
+
+body.section-howto .prose h3 {
+  border-left-color: rgba(76, 175, 80, 0.50);
+}
+
+body.section-howto .article-link--card:hover {
+  border-color: rgba(76, 175, 80, 0.35) !important;
+}
+
+html.dark body.section-howto .article-link--card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.40), 0 0 20px rgba(76,175,80,0.12) !important;
+}
+
+/* HowTo tags: green palette */
+body.section-howto .tag,
+body.section-howto [class*="tag"] {
+  background: rgba(76,175,80,0.12) !important;
+  color: var(--jb-green) !important;
+  border-color: rgba(76,175,80,0.22) !important;
+}
+
+html.dark body.section-howto .tag {
+  color: var(--jb-lime) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   12. FOOTER — full-bleed, half height
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#site-footer {
+  /* Break out of the body's max-w-7xl container */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding-left:  calc(50vw - 50% + 2rem);
+  padding-right: calc(50vw - 50% + 2rem);
+
+  /* Halve the default py-10 (2.5rem) → ~py-4 */
+  padding-top:    1rem !important;
+  padding-bottom: 1rem !important;
+
+  /* Accent line at top */
+  border-top: none;
+  position: relative;
+}
+
+#site-footer::before {
+  content: '';
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--jb-blue), var(--jb-sky), transparent);
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+}
+
+html.dark #site-footer {
+  background: rgba(4, 16, 34, 0.95);
+}
+
+html:not(.dark) #site-footer {
+  background: #dde8f4;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   13. SCROLLBAR (webkit)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(28,124,213,0.40);
+  border-radius: 3px;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(107,185,232,0.60);
+}
+
+html:not(.dark) ::-webkit-scrollbar-thumb {
+  background: rgba(28,124,213,0.25);
+  border-radius: 3px;
+}
+html:not(.dark) ::-webkit-scrollbar-thumb:hover {
+  background: rgba(28,124,213,0.45);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   14. SELECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+::selection {
+  background: rgba(28,124,213,0.30);
+  color: inherit;
+}
+
+html.dark ::selection {
+  background: rgba(107,185,232,0.30);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   15. FOCUS RING
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:focus-visible {
+  outline: 2px solid var(--jb-sky);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   16. TAXONOMY CHIPS (categories / tags)
+       Layout is handled by layouts/_default/terms.html +
+       layouts/partials/term-link/card.html overrides.
+       Only visual polish lives here.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Term chip: hover glow */
+a.term-chip {
+  background: rgba(255, 255, 255, 0.60);
+}
+
+html.dark a.term-chip {
+  background: rgba(8, 34, 62, 0.55);
+}
+
+a.term-chip:hover {
+  background: rgba(235, 247, 255, 0.90);
+  box-shadow: 0 2px 10px rgba(28, 124, 213, 0.12);
+}
+
+html.dark a.term-chip:hover {
+  background: rgba(16, 48, 88, 0.75);
+  box-shadow: 0 2px 12px rgba(28, 124, 213, 0.18);
+}

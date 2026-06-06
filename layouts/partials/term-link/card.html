@@ -1,0 +1,27 @@
+{{/* Compact taxonomy term card — overrides themes/blowfish version */}}
+<div class="min-w-full">
+  <a
+    {{ with .Page.Params.externalUrl }}
+      href="{{ . }}" target="_blank" rel="external"
+    {{ else }}
+      href="{{ .Page.RelPermalink }}"
+    {{ end }}
+    class="term-chip not-prose flex items-center justify-between gap-2
+           border border-neutral-200 dark:border-neutral-700
+           rounded-lg px-4 py-2.5 w-full
+           hover:border-primary-400 dark:hover:border-primary-500
+           transition-colors duration-150">
+    <span class="font-bold text-sm tracking-wide uppercase
+                 text-neutral-800 dark:text-neutral truncate">
+      {{ .Page.Title | emojify }}
+    </span>
+    {{ if site.Params.taxonomy.showTermCount | default true }}
+      <span class="flex-shrink-0 rounded-full border border-primary-400
+                   dark:border-primary-600 px-2 py-px
+                   text-xs font-bold text-primary-700 dark:text-primary-400
+                   bg-primary-50 dark:bg-primary-900/30">
+        {{ .Count }}
+      </span>
+    {{ end }}
+  </a>
+</div>

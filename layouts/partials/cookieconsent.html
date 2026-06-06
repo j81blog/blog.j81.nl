@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="/css/cookieconsent.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="/css/cookieconsent.css"></noscript>
+
+<script type="module">
+    import '/js/cookieconsent.umd.js';
+
+    CookieConsent.run({
+        guiOptions: {
+            consentModal: {
+                layout: "bar",
+                position: "bottom",
+                equalWeightButtons: false
+            },
+            preferencesModal: {
+                layout: "box"
+            }
+        },
+
+        categories: {
+            necessary: {
+                enabled: true,
+                readOnly: true
+            },
+            functional: {
+                enabled: false
+            }
+        },
+
+        language: {
+            default: "nl",
+            translations: {
+                nl: {
+                    consentModal: {
+                        title: "Cookies op deze site",
+                        description: "Deze site gebruikt functionele cookies voor reacties via Giscus (GitHub Discussions). Noodzakelijke cookies zorgen voor de basisfuncties van de site.",
+                        acceptAllBtn: "Alles accepteren",
+                        rejectAllBtn: "Alleen noodzakelijk",
+                        showPreferencesBtn: "Voorkeuren beheren",
+                        footer: "<a href='/pages/privacy'>Privacybeleid</a>"
+                    },
+                    preferencesModal: {
+                        title: "Cookie voorkeuren",
+                        acceptAllBtn: "Alles accepteren",
+                        acceptNecessaryBtn: "Alleen noodzakelijk",
+                        savePreferencesBtn: "Voorkeuren opslaan",
+                        sections: [
+                            {
+                                title: "Noodzakelijk",
+                                description: "Deze cookies zijn vereist voor de basisfuncties van de site en kunnen niet worden uitgeschakeld.",
+                                linkedCategory: "necessary"
+                            },
+                            {
+                                title: "Functioneel (Reacties)",
+                                description: "Giscus laadt reacties via GitHub Discussions. Hiervoor plaatst GitHub cookies. Accepteer om reacties te kunnen lezen en plaatsen.",
+                                linkedCategory: "functional"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    });
+</script>

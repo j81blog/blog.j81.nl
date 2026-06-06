@@ -1,0 +1,121 @@
+baseURL: https://blog.j81.nl/
+defaultContentLanguage: en
+title: "John Billekens | Notes from the field"
+theme: blowfish
+enableRobotsTXT: true
+enableEmoji: true
+summaryLength: 30
+
+pagination:
+  pagerSize: 10
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON        # required for Blowfish search
+
+taxonomies:
+  tag: tags
+  category: categories
+
+permalinks:
+  posts: /posts/:slug/
+  howto: /howto/:slug/
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true    # allow raw HTML (tables, inline images from WP import)
+  highlight:
+    noClasses: false
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
+
+params:
+  colorScheme: jblue
+  defaultAppearance: dark
+  autoSwitchAppearance: true
+
+  enableSearch: true
+  enableCodeCopy: true
+
+  mainSections:
+    - posts             # only blog posts on homepage; howto has its own section
+
+  author:
+    name: "John Billekens"
+    headline: "Citrix · VMware · Networking"
+    bio: "Technical Consultant | End User Computing"
+    links:
+      - linkedin: "https://nl.linkedin.com/in/johnbillekens"
+      - github: "https://github.com/j81blog"
+
+  header:
+    layout: fixed-fill-blur
+
+  homepage:
+    layout: background
+    homepageImage: "images/hero-bg.jpg"
+    layoutBackgroundBlur: true
+    layoutBackgroundHeaderSpace: false
+    showRecent: true
+    showRecentItems: 10
+    showMoreLink: true
+    showMoreLinkDest: /posts/
+    cardView: true
+    cardViewScreenWidth: false
+
+  article:
+    showDate: true
+    showDateUpdated: true
+    showReadingTime: true
+    showTableOfContents: true
+    showTaxonomies: true
+    showWordCount: false
+    showComments: true
+    showHeadingAnchors: true
+    showPagination: true
+    showRelatedContent: true
+    relatedContentLimit: 3
+    heroStyle: background
+    layoutBackgroundBlur: true
+    layoutBackgroundHeaderSpace: false
+
+  list:
+    showCards: true
+    groupByYear: false
+    cardView: true
+    cardViewScreenWidth: false
+    showHero: true
+    heroStyle: background
+    layoutBackgroundBlur: true
+    showSummary: true
+
+  taxonomy:
+    showTermCount: true
+    cardView: true
+
+  term:
+    showHero: false
+    cardView: true
+
+menu:
+  main:
+    - name: Blog
+      url: /posts/
+      weight: 1
+    - name: HowTo
+      url: /howto/
+      weight: 2
+    - name: Categories
+      url: /categories/
+      weight: 3
+
+    - name: About
+      url: /about/
+      weight: 4
+    - name: Contact
+      url: /contact/
+      weight: 5
