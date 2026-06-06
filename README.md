@@ -1,7 +1,7 @@
 # blog.j81.nl
 
 Personal tech blog by John Billekens — Citrix · VMware · Networking.
-Built with [Hugo](https://gohugo.io/) and the [Stack theme](https://github.com/CaiJimmy/hugo-theme-stack).
+Built with [Hugo](https://gohugo.io/) and the [Blowfish theme](https://blowfish.page/).
 
 ## Prerequisites
 
@@ -14,18 +14,14 @@ Built with [Hugo](https://gohugo.io/) and the [Stack theme](https://github.com/C
 ## Local development
 
 ```powershell
-# Clone (includes the Stack theme submodule)
-git clone --recurse-submodules https://github.com/JohnBillekens/blog.j81.nl
+# Clone (includes the Blowfish theme submodule)
+git clone --recurse-submodules https://github.com/j81blog/blog.j81.nl
 
 # Start the dev server — live reload on save
 hugo server
 
 # Open http://localhost:1313
 ```
-
-> Images reference `/wp-content/uploads/...` (root-relative). They load correctly on
-> the live site. Locally they will 404 unless you copy `static/wp-content/` to your
-> checkout (it is gitignored — see below).
 
 ### Useful server flags
 
@@ -37,24 +33,25 @@ hugo server --disableFastRender  # full rebuild on every change (slower but safe
 
 ## Writing a new post
 
+### 1. Create the post file
+
 ```powershell
 # Blog post
-hugo new content/posts/YYYY-MM-DD-my-post-title.md
+hugo new content/posts/YYYY-MM-DD-my-post-title/index.md
 
 # HowTo guide
-hugo new content/howto/YYYY-MM-DD-howto-my-guide.md
+hugo new content/howto/YYYY-MM-DD-howto-my-guide/index.md
 ```
 
-Edit the generated file in `content/posts/` or `content/howto/`. Set `draft: false`
-(or remove the `draft` key) when ready to publish. Push to `main` — GitHub Actions
-handles the rest.
+Using a **folder** (`post-name/index.md`) instead of a single file is the recommended
+approach — it lets you store images right next to the post (see below).
 
-### Front matter reference
+### 2. Front matter reference
 
 ```yaml
 ---
 title: "My Post Title"
-date: 2026-05-19T10:00:00Z
+date: 2026-06-06T10:00:00Z
 categories:
   - "Citrix"
 tags:
@@ -62,69 +59,121 @@ tags:
   - "Certificate"
 series:
   - "NetScaler Series"   # optional — links related posts together
+featureimage: hero.png   # optional — hero/banner image (see Images below)
 draft: false
 ---
 ```
 
+For **HowTo** guides, also add a `group` parameter so the guide appears under the
+correct group heading on the `/howto/` index page:
+
+```yaml
+group: "NetScaler"   # groups: NetScaler | Citrix FAS | Windows | (or any new name)
+```
+
+Set `draft: false` (or remove the `draft` key) when ready to publish. Push to `main` —
+GitHub Actions handles the rest.
+
+## Images in new posts
+
+### Page bundle (recommended)
+
+Store images **in the same folder as the post**. This keeps content self-contained and
+means images move/delete with the post automatically.
+
+```
+content/posts/
+└── 2026-06-10-my-new-post/
+    ├── index.md          ← the post
+    ├── hero.png          ← feature/hero image
+    └── screenshot.png    ← inline image
+```
+
+Reference them in the markdown with just the filename — no path needed:
+
+```markdown
+![Alt text](screenshot.png)
+```
+
+Or as the hero image in front matter:
+
+```yaml
+featureimage: hero.png
+```
+
+### Shared / reusable images
+
+If an image is used across **multiple posts** (a logo, a shared diagram), place it in
+`static/images/` instead:
+
+```
+static/images/my-shared-diagram.png
+```
+
+Reference it with an absolute path:
+
+```markdown
+![Alt text](/images/my-shared-diagram.png)
+```
+
+### Legacy WordPress images
+
+Older migrated posts reference images under `/wp-content/uploads/YYYY/MM/filename.png`.
+Those files live in `static/wp-content/uploads/` and are committed to the repo.
+**Do not add new images there** — use the page bundle approach above.
+
 ## Deploying
 
 Push to `main`. GitHub Actions (`.github/workflows/deploy.yml`) will:
-1. Build with `hugo --minify`
-2. Push the output to the `gh-pages` branch → GitHub Pages serves it
+1. Check out the repo (including the Blowfish theme submodule)
+2. Build with `hugo --minify`
+3. Deploy the output directly to GitHub Pages via the official Pages actions
 
-The mijn.host SFTP deploy step is present in the workflow but commented out.
+> **GitHub Pages source** must be set to **"GitHub Actions"** in  
+> Settings → Pages → Source.
+
+The mijn.host FTP deploy step is present in the workflow but commented out.
 Uncomment it and add the three GitHub Secrets (`MIJNHOST_SERVER`, `MIJNHOST_USER`,
-`MIJNHOST_PASS`) when ready to deploy to production.
+`MIJNHOST_PASS`) when ready to deploy to that host instead.
 
 ## Repo structure
 
 ```
 blog.j81.nl/
-├── assets/scss/custom.scss      # Color palette, Montserrat font, tag chip styles
+├── assets/
+│   └── css/
+│       ├── schemes/jblue.css    # JOBICO brand color scheme (primary, neutral, secondary)
+│       └── custom.css           # Global overrides: hero, footer, TOC, tags, cards, etc.
 ├── content/
 │   ├── posts/                   # Blog posts (79 migrated from WordPress)
 │   ├── howto/                   # HowTo guides (8 migrated from WordPress)
 │   ├── about/_index.md          # About page → /about/
 │   ├── contact/_index.md        # Contact page → /contact/
 │   ├── pages/                   # Other WordPress pages (welcome, donate, etc.)
-│   ├── archives/_index.md       # Archives widget page
 │   └── search/_index.md         # Search page
 ├── layouts/
-│   ├── _partials/
-│   │   ├── head/custom.html     # Injects cookie consent into <head>
-│   │   └── comments/provider/giscus.html
-│   └── partials/cookieconsent.html
+│   ├── howto/list.html          # Custom HowTo section — titles grouped by `group` param
+│   ├── _default/terms.html      # Taxonomy terms page — compact 3-column chip grid
+│   └── partials/term-link/
+│       └── card.html            # Compact category/tag chip (overrides Blowfish default)
 ├── static/
-│   ├── fonts/montserrat/        # Self-hosted Montserrat woff2 files
-│   ├── wp-content/uploads/      # WordPress media (196 MB — gitignored, local only)
-│   ├── js/cookieconsent.umd.js  # orestbida/cookieconsent v3.1.0 (self-hosted)
-│   └── css/cookieconsent.css
-├── themes/stack/                # Hugo Stack theme (git submodule)
-├── scripts/
-│   └── process-wp-import.ps1   # WordPress XML → Hugo Markdown converter
+│   ├── images/                  # Shared/reusable images for new content
+│   └── wp-content/uploads/      # Legacy WordPress media (526 files, 24.6 MB — committed)
+├── themes/blowfish/             # Blowfish theme (git submodule)
 ├── working_data/                # WordPress export + full backup (gitignored, local only)
+├── .github/workflows/
+│   └── deploy.yml               # Build & deploy to GitHub Pages
 └── hugo.yaml                    # Site configuration
 ```
 
 ## WordPress import (reference only)
 
 The content in `content/posts/`, `content/howto/`, `content/about/`, and `content/contact/`
-was generated from the WordPress XML export by running:
+was generated from the WordPress XML export. You normally do not need to run this again.
 
-```powershell
-scripts\process-wp-import.ps1
-```
-
-This script uses pandoc to convert HTML → Markdown, rewrites image URLs to root-relative
-paths, routes HowTo pages to the correct section, and adds `aliases` front matter for
-all original WordPress URLs. You normally do not need to run this again.
-
-To re-run (e.g. after a fresh clone without committed content):
-
-```powershell
-# Requires pandoc on PATH and the WordPress XML in working_data/
-scripts\process-wp-import.ps1
-```
+Images from WordPress live in `static/wp-content/uploads/` and are committed to the repo.
+All inline image references in content files have been updated to point to original
+(non-resized) filenames — resized copies (`-300x180`, `@2x`, etc.) have been deleted.
 
 ## Giscus comments
 
@@ -140,10 +189,8 @@ params:
     enabled: true
     provider: giscus
     giscus:
-      repo: JohnBillekens/blog.j81.nl
+      repo: j81blog/blog.j81.nl
       repoID: "YOUR_REPO_ID"
       category: "Announcements"
       categoryID: "YOUR_CATEGORY_ID"
 ```
-
-Comments only load after a visitor accepts the functional cookie category (cookie consent bar).
