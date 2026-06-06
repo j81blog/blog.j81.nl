@@ -56,7 +56,7 @@ Make sure you are on the "Configuration" tab.
 The NetScaler shows that it needs 4GB of free space, my personal experience is, that you need at least 5GB to run the upgrade. Make sure you have enough free space
 
 <figure class="wp-block-image size-large">
-<img src="/wp-content/uploads/2024/02/ns-fw-upgrade-04-1024x378.png" class="wp-image-1309" />
+<img src="/wp-content/uploads/2024/02/ns-fw-upgrade-04.png" class="wp-image-1309" />
 </figure>
 
 You can follow this guide to create some free space. When the NetScaler appliance is part of a HA pair, make sure to cleanup also the other appliance before continuing.
@@ -99,7 +99,7 @@ Next you can (un)check options if you like.
 I like to leave the "**Reboot after successful installation**" unchecked. I like to verify the output before rebooting.
 
 <figure class="wp-block-image size-large">
-<img src="/wp-content/uploads/2024/02/ns-fw-upgrade-08-1024x850.png" class="wp-image-1313" />
+<img src="/wp-content/uploads/2024/02/ns-fw-upgrade-08.png" class="wp-image-1313" />
 </figure>
 
 ***NOTE: If the firmware upgrade should hang, you might want to execute the upgrade via the command line. If you have selected the "Reboot after successful installation" option, you might want to check if the appliance is restarting before you consider to restart the upgrade via the command line.***
@@ -139,19 +139,19 @@ If this is a HA pair, you need to failover first before you can test everything.
 To execute a failover, make sure you are on the "Configuration" tab.
 
 <figure class="wp-block-image size-large">
-<img src="/wp-content/uploads/2024/02/ns-fw-upgrade-10a-1024x522.png" class="wp-image-1318" />
+<img src="/wp-content/uploads/2024/02/ns-fw-upgrade-10a.png" class="wp-image-1318" />
 </figure>
 
 On the Confirm dialog, select "**Yes**" to trigger a failover.
 
 <figure class="wp-block-image size-large">
-<img src="/wp-content/uploads/2024/02/ns-fw-upgrade-10b-1024x491.png" class="wp-image-1319" />
+<img src="/wp-content/uploads/2024/02/ns-fw-upgrade-10b.png" class="wp-image-1319" />
 </figure>
 
 Select "**OK**" to close the Information dialog
 
 <figure class="wp-block-image size-large">
-<img src="/wp-content/uploads/2024/02/ns-fw-upgrade-10c-1024x360.png" class="wp-image-1317" />
+<img src="/wp-content/uploads/2024/02/ns-fw-upgrade-10c.png" class="wp-image-1317" />
 </figure>
 
 Now is the time to check and validate everything.
@@ -194,7 +194,7 @@ tar xvfz build-13.1-51.15_nc_64.tgz
 ```
 
 <figure class="wp-block-image size-large">
-<img src="/wp-content/uploads/2024/02/ns-fw-upgrade-12-1024x615.png" class="wp-image-1316" />
+<img src="/wp-content/uploads/2024/02/ns-fw-upgrade-12.png" class="wp-image-1316" />
 </figure>
 
 To get a litle bit of extra space, you could remove the firmware file "**build-13.1-51.15_nc_64.tgz**"
@@ -252,7 +252,7 @@ force HA failover
 On the question "**Please confirm whether you want force-failover (Y/N)?**" you can answer "**Y**" as this is to be expected. The Secondary node has now a newer version, and we want to activate this node.
 
 <figure class="wp-block-image size-large">
-<img src="/wp-content/uploads/2024/02/ns-fw-upgrade-16-1024x361.png" class="wp-image-1305" />
+<img src="/wp-content/uploads/2024/02/ns-fw-upgrade-16.png" class="wp-image-1305" />
 </figure>
 
 Now is the time to check and validate everything.

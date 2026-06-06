@@ -79,7 +79,7 @@ If you want to load the OTP-Secret, select the one you want to load ***(9)*** an
 
 If you want to generate a new OTP-Secret, click the "Generate Secret"-button ***(13)*** add a "Device Name" for this secret ***(15)*** and click the "Add"-button ***(16)***. The "Device Name" is the name that will be shown when visiting the manageotp site (e.g. https://portal.domain.com/manageotp).
 
-<img src="/wp-content/uploads/2020/09/OTP4ADC-004-300x95.png" class="aligncenter size-medium wp-image-1093" width="300" height="95" />
+<img src="/wp-content/uploads/2020/09/OTP4ADC-004.png" class="aligncenter size-medium wp-image-1093" width="300" height="95" />
 
 To generate a QR for the new or loaded OTP-Secret you must have filled the "Gateway fqdn"-field ***(2)*** you can do this manually or by parameter as explained earlier. When ready click the "Generate QR"-button ***(17)*** if all goes well a QR Code will be shown ***(5)***.
 

@@ -25,7 +25,7 @@ This article assumes you already have a valid certificate (pfx without the root 
 
 First login to the NetScaler with enough permissions to install the certificate.
 
-<img src="/wp-content/uploads/2023/10/HowToNSUpdateCert01-1024x436.png" class="aligncenter wp-image-1211 size-large" width="1024" height="436" alt="Log in the NetScaler" />
+<img src="/wp-content/uploads/2023/10/HowToNSUpdateCert01.png" class="aligncenter wp-image-1211 size-large" width="1024" height="436" alt="Log in the NetScaler" />
 
 Next browse to "**Traffic Management**" (1) / "**SSL**" (2) / "**Certificates**" (3) / "**All Certificates**" (4)
 
@@ -55,7 +55,7 @@ Finally click "**Install**" to install the certificate.
 
 If all goes well, the certificate is added to the list.
 
-<img src="/wp-content/uploads/2023/10/HowToCertInstall04-1024x266.png" class="aligncenter wp-image-1231 size-large" width="1024" height="266" alt="Certificate installed" />
+<img src="/wp-content/uploads/2023/10/HowToCertInstall04.png" class="aligncenter wp-image-1231 size-large" width="1024" height="266" alt="Certificate installed" />
 
 A certificate needs a chain (of trust). In most cases the Root and sometimes the intermediate is already available on your client. There are cases where those are not present. To make sure a full chain is available on the client you can send the intermediate(s) and root to your client by configuring this on the NetScaler.
 
@@ -75,17 +75,17 @@ When all certificates are added we can continue making the link between the inte
 
 Select the certificate we added earlier as pfx file and at the end click on the "**Link**" button.
 
-<img src="/wp-content/uploads/2023/10/HowToCertInstall07-1024x306.png" class="aligncenter wp-image-1234 size-large" width="1024" height="306" alt="Enable link" />
+<img src="/wp-content/uploads/2023/10/HowToCertInstall07.png" class="aligncenter wp-image-1234 size-large" width="1024" height="306" alt="Enable link" />
 
 You will be presented with an overview. If the certificate is not yet linked you see missing certificate symbols for the intermediate(s) and root.
 
 Just click the "**Link Certificates**" button to complete the links.
 
-<img src="/wp-content/uploads/2023/10/HowToCertInstall08-1024x311.png" class="aligncenter wp-image-1235 size-large" width="1024" height="311" alt="Create link between certificates" />
+<img src="/wp-content/uploads/2023/10/HowToCertInstall08.png" class="aligncenter wp-image-1235 size-large" width="1024" height="311" alt="Create link between certificates" />
 
 When all goes well, you will see a full (green) line with certificate symbols under the intermediate and root certificate(s).
 
-<img src="/wp-content/uploads/2023/10/HowToCertInstall09-1024x311.png" class="aligncenter wp-image-1236 size-large" width="1024" height="311" alt="View linked certificates" />
+<img src="/wp-content/uploads/2023/10/HowToCertInstall09.png" class="aligncenter wp-image-1236 size-large" width="1024" height="311" alt="View linked certificates" />
 
 And that's it. You can now bind the certificate to your VIP.
 

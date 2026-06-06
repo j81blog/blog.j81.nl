@@ -31,7 +31,7 @@ Updating an existing certificate is preferred over adding a new certificate. Whe
 
 First login to the NetScaler with enough permissions to update/replace the certificate.
 
-<img src="/wp-content/uploads/2023/10/HowToNSUpdateCert01-1024x436.png" class="aligncenter wp-image-1211 size-large" width="1024" height="436" alt="Log in the NetScaler" />
+<img src="/wp-content/uploads/2023/10/HowToNSUpdateCert01.png" class="aligncenter wp-image-1211 size-large" width="1024" height="436" alt="Log in the NetScaler" />
 
 Next browse to "**Traffic Management**" / "**SSL**" / "**Certificates**" / "**All Certificates**"
 

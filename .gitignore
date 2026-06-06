@@ -29,7 +29,5 @@ node_modules/
 # These files are large and contain personal data; keep them off the repo
 working_data/
 
-# WordPress media files are served from static/wp-content/uploads/
-# They total ~196 MB and are not committed — copy from the backup when needed:
-#   working_data\2026-05-19_14-41-51_D2X4LZ6706_FILE-DBDUMP-WPPLUGIN\wp-content\uploads
-static/wp-content/
+# WordPress media files are committed to the repo (static/wp-content/)
+# ~196 MB — within GitHub's limits and required for GitHub Pages deployment

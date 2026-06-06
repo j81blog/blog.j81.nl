@@ -19,7 +19,7 @@ Recently I needed to script some actions for a VM on Nutanix AHV. I wanted to sh
 ``` powershell
 ```
 
-To start with Nutanix AHV and PowerShell you need to install the PowerShell Cmdlets. You can find the snap-ins when you click on your name and select "Download Cmdlets Installer" <img src="/wp-content/uploads/2019/01/NtnxPoSH-232x300.jpg" class="aligncenter wp-image-855" width="195" height="252" /> Add the snap-ins to your script or session:
+To start with Nutanix AHV and PowerShell you need to install the PowerShell Cmdlets. You can find the snap-ins when you click on your name and select "Download Cmdlets Installer" <img src="/wp-content/uploads/2019/01/NtnxPoSH.jpg" class="aligncenter wp-image-855" width="195" height="252" /> Add the snap-ins to your script or session:
 
 ``` powershell
 if ([string]::IsNullOrEmpty($(Get-PSSnapin -Name NutanixCmdletsPSSnapin -Registered -ErrorAction SilentlyContinue))) {

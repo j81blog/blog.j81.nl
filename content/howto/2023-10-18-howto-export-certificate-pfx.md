@@ -43,7 +43,7 @@ Next, open the folders **"Personal"** and **"Certificates".**
 
 Select the certificate you want to export. 
 
-<img src="/wp-content/uploads/2023/10/HowToCertExport02-1024x710.png" class="aligncenter wp-image-1215 size-large" width="1024" height="710" alt="Export certificate" />
+<img src="/wp-content/uploads/2023/10/HowToCertExport02.png" class="aligncenter wp-image-1215 size-large" width="1024" height="710" alt="Export certificate" />
 
 In the "**Welcome to the Certificate Export Wizard**" window, click "**Next**".
 

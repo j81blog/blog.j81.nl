@@ -23,7 +23,7 @@ The script can be found on <a href="https://github.com/j81blog/CtxClearSTFLoginT
 
 ## Changing the text
 
-With this script you can change the default text into something else or just empty. <img src="/wp-content/uploads/2018/06/CtxClearSTFLoginText_Default-300x108.png" class="size-medium wp-image-811 aligncenter" width="300" height="108" />  <img src="/wp-content/uploads/2018/06/CtxClearSTFLoginText_Changed_empty-300x106.png" class="size-medium wp-image-809 aligncenter" width="300" height="106" />  If you run the script by default it will first create a backup if it not already exists, then it clears the text (make it empty). If you don't specify the "-Store" parameter, a choice will be presented.
+With this script you can change the default text into something else or just empty. <img src="/wp-content/uploads/2018/06/CtxClearSTFLoginText_Default.png" class="size-medium wp-image-811 aligncenter" width="300" height="108" />  <img src="/wp-content/uploads/2018/06/CtxClearSTFLoginText_Changed_empty.png" class="size-medium wp-image-809 aligncenter" width="300" height="106" />  If you run the script by default it will first create a backup if it not already exists, then it clears the text (make it empty). If you don't specify the "-Store" parameter, a choice will be presented.
 
 ``` powershell
 .\CtxClearSTFLoginText.ps1 -Store "Store"
@@ -35,11 +35,11 @@ You can specify the parameter "-InnerText \<Custom Text\>" with your own text fo
 .\CtxClearSTFLoginText.ps1 -Store "Store" -InnerText "test" -RestartIIS
 ```
 
-[<img src="/wp-content/uploads/2018/06/CtxClearSTFLoginText_Changed-300x183.png" class="aligncenter wp-image-808 size-medium" width="300" height="183" />](/wp-content/uploads/2018/06/CtxClearSTFLoginText_Changed.png) This will be the result after IIS is restarted: <img src="/wp-content/uploads/2018/06/CtxClearSTFLoginText_Changed_text-300x65.png" class="aligncenter size-medium wp-image-810" width="300" height="65" /> You can <span style="text-decoration: underline;">choose</span> to let the script restart IIS by specifying the "**-RestartIIS**" parameter. If you want to do this manually, **don't** specify this parameter.
+[<img src="/wp-content/uploads/2018/06/CtxClearSTFLoginText_Changed.png" class="aligncenter wp-image-808 size-medium" width="300" height="183" />](/wp-content/uploads/2018/06/CtxClearSTFLoginText_Changed.png) This will be the result after IIS is restarted: <img src="/wp-content/uploads/2018/06/CtxClearSTFLoginText_Changed_text.png" class="aligncenter size-medium wp-image-810" width="300" height="65" /> You can <span style="text-decoration: underline;">choose</span> to let the script restart IIS by specifying the "**-RestartIIS**" parameter. If you want to do this manually, **don't** specify this parameter.
 
 > **NOTE: Make sure to run this on all StoreFront servers!**
 
-As said before, the original files are back-upped before any changes are made, the backup files will get the extension ".orig". [<img src="/wp-content/uploads/2018/06/CtxClearSTFLoginText_OrigFiles-300x104.png" class="aligncenter wp-image-814 size-medium" width="300" height="104" />](/wp-content/uploads/2018/06/CtxClearSTFLoginText_OrigFiles.png)
+As said before, the original files are back-upped before any changes are made, the backup files will get the extension ".orig". [<img src="/wp-content/uploads/2018/06/CtxClearSTFLoginText_OrigFiles.png" class="aligncenter wp-image-814 size-medium" width="300" height="104" />](/wp-content/uploads/2018/06/CtxClearSTFLoginText_OrigFiles.png)
 
 ## Restore the original files
 
