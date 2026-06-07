@@ -10,6 +10,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2015/02/21/exchange-config-for-the-netscaler/"
+  - "/2015/02/21/exchange-config-for-the-netscaler/feed/"
+  - "/2015/02/21/exchange-config-for-the-netscaler/feed/index.html"
 ---
 
 Below is the NetScaler configuration for an Exchange environment. You need a Standard licence for this.

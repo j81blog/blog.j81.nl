@@ -7,6 +7,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2014/04/02/citrix-desktop-director-auto-fill-domain-name/"
+  - "/2014/04/02/citrix-desktop-director-auto-fill-domain-name/feed/"
+  - "/2014/04/02/citrix-desktop-director-auto-fill-domain-name/feed/index.html"
 ---
 
 When logging on to the Citrix Director you have to enter the domain name along with the username and password. If you don't want to enter the domain name each time you logon you can have it filled in by default. Edit C:inetpubwwwrootDesktopDirectorLogOn.aspx (With admin rights)

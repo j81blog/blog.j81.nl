@@ -7,6 +7,8 @@ categories:
   - "VMware"
 aliases:
   - "/2013/11/11/esxi-from-usb/"
+  - "/2013/11/11/esxi-from-usb/feed/"
+  - "/2013/11/11/esxi-from-usb/feed/index.html"
 ---
 
 A USB drive can be set up to boot into any LInux distribution using UNetBootin. Fortunately, ESXi is a Linux distribution. The steps are surprisingly easy.

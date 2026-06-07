@@ -7,6 +7,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2013/05/31/apply-patches-and-updates-in-support-mode/"
+  - "/2013/05/31/apply-patches-and-updates-in-support-mode/feed/"
+  - "/2013/05/31/apply-patches-and-updates-in-support-mode/feed/index.html"
 ---
 
 - Shutdown the CMC

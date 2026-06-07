@@ -6,6 +6,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2015/06/21/vcsa-6-cli-install/"
+  - "/2015/06/21/vcsa-6-cli-install/feed/"
+  - "/2015/06/21/vcsa-6-cli-install/feed/index.html"
 ---
 
 1\. Make sure a DNS A and PTR record exists for the VC and the ESXi hosts. 2. Create a installation parameter file. E.g. "example_embedded.json" 3. Run "vcsa-deploy \<your_json_file_location_and_name\>" E.g. "vcsa-deploy c:/temp/example_embedded.json" 4. Wait (20 a 30min) fot the message " Login as: Administrator@vsphere.local" appears "example_embedded.json" file:

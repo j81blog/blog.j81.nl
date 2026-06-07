@@ -13,6 +13,8 @@ tags:
   - "StoreFront"
 aliases:
   - "/2018/06/26/hide-or-change-domainuser-or-usernamedomain-com-text-in-storefront-part-2/"
+  - "/2018/06/26/hide-or-change-domainuser-or-usernamedomain-com-text-in-storefront-part-2/feed/"
+  - "/2018/06/26/hide-or-change-domainuser-or-usernamedomain-com-text-in-storefront-part-2/feed/index.html"
 ---
 
 A while ago I wrote a blog about how to change the "domain\user or username@domain.com" text in Citrix StoreFront. Now I've create a small PowerShell script that can do that for you.

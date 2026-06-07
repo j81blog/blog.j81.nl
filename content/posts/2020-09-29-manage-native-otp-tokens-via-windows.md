@@ -21,6 +21,8 @@ tags:
   - "TOTP"
 aliases:
   - "/2020/09/29/manage-native-otp-tokens-via-windows/"
+  - "/2020/09/29/manage-native-otp-tokens-via-windows/feed/"
+  - "/2020/09/29/manage-native-otp-tokens-via-windows/feed/index.html"
 ---
 
 Today I want to release an early (beta) version of a new tool I created, "OTP4ADC" With this tool you can add, remove or change the native OTP tokens used within your Citrix ADC, previously called NetScaler. 

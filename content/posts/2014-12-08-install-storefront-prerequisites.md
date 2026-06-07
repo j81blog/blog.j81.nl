@@ -6,6 +6,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2014/12/08/install-storefront-prerequisites/"
+  - "/2014/12/08/install-storefront-prerequisites/feed/"
+  - "/2014/12/08/install-storefront-prerequisites/feed/index.html"
 ---
 
 To install the StoreFront prerequisites, execute the following PowerShell commands on the StoreFront Server.

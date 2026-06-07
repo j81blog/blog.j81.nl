@@ -7,6 +7,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2014/03/30/citrix-access-gateway-enterprise-port-configuration/"
+  - "/2014/03/30/citrix-access-gateway-enterprise-port-configuration/feed/"
+  - "/2014/03/30/citrix-access-gateway-enterprise-port-configuration/feed/index.html"
 ---
 
 I have put together this blog post about Citrix Access Gateway Enterprise Port Configuration to assist people in setting up their firewalls for implementing Access Gateway in one-arm mode. I have found that almost all of Citrix’s documentation covers the Access Gateway / NetScaler straddling the DMZ and the Internal LAN E.G the VIP sits in the DMZ and the SNIP sits in the internal LAN. In Enterprise deployments firewalls are firewalls and NetScalers are NetScalers and security do not like NetScalers trying to be firewalls; although I’m sure they do perfectly fine job of it. So the below article describes what firewall rules you will need to have in place to get a NetScaler working when all its interfaces reside in the DMZ (one-arm single subnet). You should find the diagram useful even if you are not using the model described above. This is a diagram I like to use to explain NetScalers in an HA pair. It shows all the possible routes that traffic could take, not the way traffic flows during normal operation. The VIP and SNIP “float” between the two devices, in reality they exist on both devices but at any given time are only active on whichever node is the primary in the HA pair. ![](//www.shaunritchie.co.uk/wp-content/uploads/2012/03/Final-AGEE2.jpg)

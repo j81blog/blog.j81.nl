@@ -17,6 +17,8 @@ tags:
   - "Windows 10"
 aliases:
   - "/2016/08/07/res-one-workspace-on-windows-10-lessons-learned/"
+  - "/2016/08/07/res-one-workspace-on-windows-10-lessons-learned/feed/"
+  - "/2016/08/07/res-one-workspace-on-windows-10-lessons-learned/feed/index.html"
 ---
 
 For a while now Windows 10 is supported with RES ONE Workspace 2015 and up. More and more companies are switching from their old versions (Yes, some of them are still using Windows XP) to Windows 10. I've done a couple of implementation now and thought to share some of the knowledge I found during these implementations.

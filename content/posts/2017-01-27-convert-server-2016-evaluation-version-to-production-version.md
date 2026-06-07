@@ -5,6 +5,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2017/01/27/convert-server-2016-evaluation-version-to-production-version/"
+  - "/2017/01/27/convert-server-2016-evaluation-version-to-production-version/feed/"
+  - "/2017/01/27/convert-server-2016-evaluation-version-to-production-version/feed/index.html"
 ---
 
 I'ts possible to convert your Server 2016 evaluation version to a production version using one of the following commands depending on your version: Standard:

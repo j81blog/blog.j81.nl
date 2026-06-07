@@ -7,6 +7,8 @@ categories:
   - "Windows"
 aliases:
   - "/2013/02/18/windows-icons-full-list-with-details-locations-images/"
+  - "/2013/02/18/windows-icons-full-list-with-details-locations-images/feed/"
+  - "/2013/02/18/windows-icons-full-list-with-details-locations-images/feed/index.html"
 ---
 
 Good qual­ity icons and images, espe­cially ones with an alpha trans­par­ency can be time con­sum­ing to make, and are often also hard to find.  One source of lots of high qual­ity icons in a range of sizes is Win­dows.  <a href="http://diymediahome.org/windows-icons-reference-list-with-details-locations-images/B002DGS82G" target="_blank" title="Windows 7">Win­dows 7</a> includes lots of icons which can be use­ful as the major­ity are avail­able in sizes from 16×16 up to 256×256, and come with alpha trans­par­ency.  You may have noticed that we use some on our down­loads page — they’re handy to quickly indic­ate file type. Win­dows stores most of its icons inside exe and dll files which makes them inac­cess­ible to stand­ard image manip­u­la­tion applic­a­tions like Pho­toshop.  How­ever, once they have been loc­ated they can eas­ily be extrac­ted with the free­ware util­ity IcoFX. Track­ing some of them down seems to be the trick­ier part. Below is a quick ref­er­ence for the loc­a­tions of many of the icons avail­able on <a href="http://diymediahome.org/windows-icons-reference-list-with-details-locations-images/B002DGS82G" target="_blank" title="Windows 7">Win­dows 7</a>. I will peri­od­ic­ally add more details and any extra icon lib­rar­ies I dis­cover to this list.

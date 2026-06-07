@@ -7,6 +7,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2014/06/08/12-steps-to-remotely-manage-hyper-v-server-2012-core/"
+  - "/2014/06/08/12-steps-to-remotely-manage-hyper-v-server-2012-core/feed/"
+  - "/2014/06/08/12-steps-to-remotely-manage-hyper-v-server-2012-core/feed/index.html"
 ---
 
 Install Hyper-V Server 2012 Core and log in to the console.

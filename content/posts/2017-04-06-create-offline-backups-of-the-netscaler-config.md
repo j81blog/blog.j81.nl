@@ -13,6 +13,8 @@ tags:
   - "PowerShell"
 aliases:
   - "/2017/04/06/create-offline-backups-of-the-netscaler-config/"
+  - "/2017/04/06/create-offline-backups-of-the-netscaler-config/feed/"
+  - "/2017/04/06/create-offline-backups-of-the-netscaler-config/feed/index.html"
 ---
 
 I've created a PowerShell script that can be used to generate an (offline) backup of a Citrix NetScaler. If you want you can use the supplied batchfile for example to schedule the backup in Scheduled Tasks to run everyday. Some more information about the parameters used:

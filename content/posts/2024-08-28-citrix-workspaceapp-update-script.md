@@ -15,6 +15,8 @@ tags:
   - "WorkspaceApp"
 aliases:
   - "/2024/08/28/citrix-workspaceapp-update-script/"
+  - "/2024/08/28/citrix-workspaceapp-update-script/feed/"
+  - "/2024/08/28/citrix-workspaceapp-update-script/feed/index.html"
 ---
 
 It's crucial to regularly update your Citrix WorkspaceApp to an up-to date version. Many environments still use outdated versions with significant security vulnerabilities (CVEs). Too often, I encounter environments that are still running old versions, including the antiquated "Receiver" versions. Not updating to a non-vulnerable or recent supported version poses a real security risk!\

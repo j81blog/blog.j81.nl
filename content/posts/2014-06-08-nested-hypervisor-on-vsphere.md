@@ -10,6 +10,8 @@ categories:
   - "vSphere"
 aliases:
   - "/2014/06/08/nested-hypervisor-on-vsphere/"
+  - "/2014/06/08/nested-hypervisor-on-vsphere/feed/"
+  - "/2014/06/08/nested-hypervisor-on-vsphere/feed/index.html"
 ---
 
 VM Hardware version 9 or Higher VM Advanced settings add:

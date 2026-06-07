@@ -12,6 +12,8 @@ tags:
   - "PowerShell"
 aliases:
   - "/2019/01/29/some-nutanix-ahv-powershell-commands-i-found-useful/"
+  - "/2019/01/29/some-nutanix-ahv-powershell-commands-i-found-useful/feed/"
+  - "/2019/01/29/some-nutanix-ahv-powershell-commands-i-found-useful/feed/index.html"
 ---
 
 Recently I needed to script some actions for a VM on Nutanix AHV. I wanted to share with you some of the commands I found and used. I created a small function (Wait-NTNXTask) that verifies the task and waits until the task is finished. Pleas note that this is optional and not required to run the commands specified in this blog.

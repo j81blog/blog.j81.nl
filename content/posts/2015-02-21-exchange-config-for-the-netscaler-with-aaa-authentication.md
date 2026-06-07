@@ -10,6 +10,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2015/02/21/exchange-config-for-the-netscaler-with-aaa-authentication/"
+  - "/2015/02/21/exchange-config-for-the-netscaler-with-aaa-authentication/feed/"
+  - "/2015/02/21/exchange-config-for-the-netscaler-with-aaa-authentication/feed/index.html"
 ---
 
 Below is the NetScaler configuration for an Exchange environment. You need an Enterprise licence to activate AAA.

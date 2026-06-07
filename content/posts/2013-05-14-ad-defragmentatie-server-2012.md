@@ -9,6 +9,8 @@ categories:
   - "Windows"
 aliases:
   - "/2013/05/14/ad-defragmentatie-server-2012/"
+  - "/2013/05/14/ad-defragmentatie-server-2012/feed/"
+  - "/2013/05/14/ad-defragmentatie-server-2012/feed/index.html"
 ---
 
 Stop de ADDS Service

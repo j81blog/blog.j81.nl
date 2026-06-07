@@ -7,6 +7,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2014/03/30/citrix-netscaler-access-gateway-10-basic-fundamentals/"
+  - "/2014/03/30/citrix-netscaler-access-gateway-10-basic-fundamentals/feed/"
+  - "/2014/03/30/citrix-netscaler-access-gateway-10-basic-fundamentals/feed/index.html"
 ---
 
 ## NetScaler Network Connections.

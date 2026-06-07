@@ -19,6 +19,8 @@ tags:
   - "Win32"
 aliases:
   - "/2020/07/05/how-to-use-fslogix-appmasking-on-intune-managed-devices/"
+  - "/2020/07/05/how-to-use-fslogix-appmasking-on-intune-managed-devices/feed/"
+  - "/2020/07/05/how-to-use-fslogix-appmasking-on-intune-managed-devices/feed/index.html"
 ---
 
 <div class="wp-block-group">

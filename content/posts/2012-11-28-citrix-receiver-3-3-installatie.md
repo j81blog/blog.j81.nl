@@ -6,6 +6,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2012/11/28/citrix-receiver-3-3-installatie/"
+  - "/2012/11/28/citrix-receiver-3-3-installatie/feed/"
+  - "/2012/11/28/citrix-receiver-3-3-installatie/feed/index.html"
 ---
 
 ReceiverInstall.exe /addlocal="ICA_Client,ReceiverInside,SSON,Flash,USB,DesktopViewer,HDX,Vd3d"

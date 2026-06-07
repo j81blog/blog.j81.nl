@@ -7,6 +7,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2015/04/15/windows-8-maintenance-jobs/"
+  - "/2015/04/15/windows-8-maintenance-jobs/feed/"
+  - "/2015/04/15/windows-8-maintenance-jobs/feed/index.html"
 ---
 
 Windows 8 has some new maintenance jobs. These are great when you have an physical machine. But not when you're using Citrix PVS to stream the OS. To disable these tasks enter the following commands:

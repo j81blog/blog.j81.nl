@@ -7,6 +7,8 @@ categories:
   - "Windows"
 aliases:
   - "/2012/12/04/how-to-image-sysprep-and-deploy-windows-7-a-complete-guide-using-sysprep-and-imagex/"
+  - "/2012/12/04/how-to-image-sysprep-and-deploy-windows-7-a-complete-guide-using-sysprep-and-imagex/feed/"
+  - "/2012/12/04/how-to-image-sysprep-and-deploy-windows-7-a-complete-guide-using-sysprep-and-imagex/feed/index.html"
 ---
 
 ## Getting Ready

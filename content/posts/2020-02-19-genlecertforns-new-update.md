@@ -18,6 +18,8 @@ tags:
   - "PowerShell"
 aliases:
   - "/2020/02/19/genlecertforns-new-update/"
+  - "/2020/02/19/genlecertforns-new-update/feed/"
+  - "/2020/02/19/genlecertforns-new-update/feed/index.html"
 ---
 
 A lot of new users used my script after writing  my <a href="https://www.citrix.com/blogs/2019/06/24/why-certificates-are-more-important-today-than-ever/" target="_blank" rel="noopener noreferrer">first blog article for Citrix</a>. Since then I made some improvements and continuing to add new features. Today I released the latest version of my "GenLeCertForNS" script. Within this version I solved some issues and improved the overall speed (especially with larger orders).

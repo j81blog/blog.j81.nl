@@ -7,6 +7,8 @@ categories:
   - "vSphere"
 aliases:
   - "/2013/02/24/vsphere-5-1-static-mac/"
+  - "/2013/02/24/vsphere-5-1-static-mac/feed/"
+  - "/2013/02/24/vsphere-5-1-static-mac/feed/index.html"
 ---
 
 # Failed to start VM

@@ -16,6 +16,8 @@ tags:
   - "Unattended"
 aliases:
   - "/2016/03/05/provisioning-target-device-unattended-deployment/"
+  - "/2016/03/05/provisioning-target-device-unattended-deployment/feed/"
+  - "/2016/03/05/provisioning-target-device-unattended-deployment/feed/index.html"
 ---
 
 When deployoing the Citrix PVS Target Device software with for example SCCM or RES ONE Automation, this fails. As it turns out "CFsDep2.sys" is missing from the System32\Drivers directory. This is because during the (unattended) installation of the Target Device software the installation of "CFsDep2" fails. When you install the software by hand, everything is works as it should. This can be solved to run the following command after the installation of the Target Device Software.

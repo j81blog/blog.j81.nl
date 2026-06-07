@@ -8,6 +8,8 @@ categories:
   - "Windows"
 aliases:
   - "/2016/05/22/remove-appx-modern-apps/"
+  - "/2016/05/22/remove-appx-modern-apps/feed/"
+  - "/2016/05/22/remove-appx-modern-apps/feed/index.html"
 ---
 
 With the following PowerShell script you can remove AppX Apps in Windows 8(.1) and 10. **Note**: The apps will be removed for the <span style="text-decoration: underline;">**Current**</span> and <span style="text-decoration: underline;">**New**</span> users only!

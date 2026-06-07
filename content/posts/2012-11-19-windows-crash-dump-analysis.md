@@ -6,6 +6,8 @@ categories:
   - "Windows"
 aliases:
   - "/2012/11/19/windows-crash-dump-analysis/"
+  - "/2012/11/19/windows-crash-dump-analysis/feed/"
+  - "/2012/11/19/windows-crash-dump-analysis/feed/index.html"
 ---
 
 Windows Crash Dump analysis is a fairly expansive topic that ranges from simple post mortem analysis of small memory dump files to remote debugging of a live system and probing the failure as it occurs in the operating system. This series of posts will cover analysis and troubleshooting of many common failures faced by end users on Windows XP, Windows Server 2003, Windows Vista, Windows Server 2008, Windows 7, Windows Server 2008 R2, and Windows 8. This specific post examines memory dumps, how to install/use the tools to analyze them, crashes that appear when KeBugCheckEx is called, and initial steps with most dumps. The blue screen of death in Windows 7 and earlier versions of Windows: "A problem has been detected and Windows has been shut down to prevent damage to your computer."   The blue screen of death in Windows 8 Developer Preview: "Your PC ran into a problem that it couldn't handle, and now it needs to restart. You can search for the error online: %s."  

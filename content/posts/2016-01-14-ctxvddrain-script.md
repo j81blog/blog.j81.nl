@@ -8,6 +8,8 @@ categories:
   - "XenDesktop"
 aliases:
   - "/2016/01/14/ctxvddrain-script/"
+  - "/2016/01/14/ctxvddrain-script/feed/"
+  - "/2016/01/14/ctxvddrain-script/feed/index.html"
 ---
 
 I released also my CtxVdDrain Script, this script will put any selected XenDesktop Machine catalog in maintenance mode and turn it of where possible. It won't kick users out of their desktops, it will wait and try again. You can download it <a href="https://github.com/j81blog/CtxVdDrain" target="_blank">here</a>

@@ -8,6 +8,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2015/02/25/optimize-storefront-2-x/"
+  - "/2015/02/25/optimize-storefront-2-x/feed/"
+  - "/2015/02/25/optimize-storefront-2-x/feed/index.html"
 ---
 
 # Socket Pooling.

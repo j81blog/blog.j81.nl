@@ -17,6 +17,8 @@ tags:
   - "XenDesktop"
 aliases:
   - "/2016/08/06/the-case-of-the-empty-start-menu-windows-10/"
+  - "/2016/08/06/the-case-of-the-empty-start-menu-windows-10/feed/"
+  - "/2016/08/06/the-case-of-the-empty-start-menu-windows-10/feed/index.html"
 ---
 
 During a project I'm currently working on, with Windows 10, Citrix Xendesktop 7.9, XenServer 7.0 and RES ONE Workspace 2015 SR2 I stumbled upon a issue with RES ONE Workspace and the pinning of items in the Start Menu. I noticed that sometimes my Start Menu was empty, while I had items pinned when I logged off!? After some investigation with an engineer from RES Software, we managed to reproduce the issue in a closed test environment. At this point RES can try to fix the issue and at the time of writing no known solution is available. We still need to verify but as far as we know the issue is also still in the new version RES ONE Workspace 2016. We still needed a filled Start Menu for the time being, because currently there is no known date for the possible fix... So I created a PoSh script that will fill the Start Menu. (for the 2nd time, after the RES composer is finished) Yes I know not very pretty solution but it gets the job done and it's a temporary fix. So here is the script I've made. (Building block is also available at the end for download)

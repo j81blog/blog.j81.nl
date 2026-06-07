@@ -7,6 +7,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2013/05/31/firmware-for-individual-components/"
+  - "/2013/05/31/firmware-for-individual-components/feed/"
+  - "/2013/05/31/firmware-for-individual-components/feed/index.html"
 ---
 
 - Before upgrading any individual components, check the latest compatibility matrix ( in attachment )

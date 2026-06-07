@@ -23,6 +23,8 @@ tags:
   - "Token"
 aliases:
   - "/2021/04/20/manage-native-otp-tokens-via-windows-part-2/"
+  - "/2021/04/20/manage-native-otp-tokens-via-windows-part-2/feed/"
+  - "/2021/04/20/manage-native-otp-tokens-via-windows-part-2/feed/index.html"
 ---
 
 A couple weeks ago someone asked me if OTP4ADC could also support encrypted tokens. And at that time I hadn't done anything with encrypted tokens on a Citrix ADC. And if you not have heard of the OTP4ADC tool/script you can read my <a href="https://blog.j81.nl/2020/09/29/manage-native-otp-tokens-via-windows/" target="_blank" rel="nofollow noopener" title="Manage Native OTP tokens via Windows">initial blog article</a> from when I released the first version and the basics of how it works.

@@ -6,6 +6,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2015/01/26/citrix-receiver-4-2-pnagent-configuration/"
+  - "/2015/01/26/citrix-receiver-4-2-pnagent-configuration/feed/"
+  - "/2015/01/26/citrix-receiver-4-2-pnagent-configuration/feed/index.html"
 ---
 
 There is an undocumented regkey setting required to add PNAgent functionality using the new Citrix Receiver 4.2.

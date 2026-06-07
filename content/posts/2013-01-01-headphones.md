@@ -6,6 +6,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2013/01/01/headphones/"
+  - "/2013/01/01/headphones/feed/"
+  - "/2013/01/01/headphones/feed/index.html"
 ---
 
 QNAP - Headphones Updating:

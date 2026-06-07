@@ -7,6 +7,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2015/03/03/citrix-storefront-domain-passthrough-not-working-when-base-url-is-different-from-machine-domain/"
+  - "/2015/03/03/citrix-storefront-domain-passthrough-not-working-when-base-url-is-different-from-machine-domain/feed/"
+  - "/2015/03/03/citrix-storefront-domain-passthrough-not-working-when-base-url-is-different-from-machine-domain/feed/index.html"
 ---
 
 When using a different base url for storefront than your storefront is member of you might run into this one. When logging on to a machine configured for Domain Passthrough you need to enter the credentials again in Windows. To resolve this issue enter on your StoreFront server the following command:

@@ -10,6 +10,8 @@ tags:
   - "StoreFront"
 aliases:
   - "/2018/01/15/hide-or-change-domainuser-or-usernamedomain-com-text-in-storefront/"
+  - "/2018/01/15/hide-or-change-domainuser-or-usernamedomain-com-text-in-storefront/feed/"
+  - "/2018/01/15/hide-or-change-domainuser-or-usernamedomain-com-text-in-storefront/feed/index.html"
 ---
 
 The following was tested om 3.10+ versions, not sure if it works on older or 2.x versions.

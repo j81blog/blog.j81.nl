@@ -17,6 +17,8 @@ tags:
   - "Zebra"
 aliases:
   - "/2017/03/18/spontaneously-changing-default-printer/"
+  - "/2017/03/18/spontaneously-changing-default-printer/feed/"
+  - "/2017/03/18/spontaneously-changing-default-printer/feed/index.html"
 ---
 
 Yesterday I was at a Customers location and they had an issue with their printers on the XenDesktop VDI environment. Some users are using Exact to print all kinds of labels, in this case a Zebra label printer. And while they were printing labels, the label printer was set automagically as default. They started noticing this because when they wanted to print other (A4) reports, the layout was wrong and some information fell of the report. They could change the default printer back to the MFP, but when they printed labels again, you'll get it right? I recently helped them move from Windows 10 LTSB 2015 (1507) to Windows 10 LTSB 2016 (1607) and they started noticing this issue after the switch to the new Windows version. So what could it be? Turned out to be a setting in Windows... After changing this, the issue was gone. You can change it in "Settings", "Devices", "Printers & Scanners" and change the setting "Let Windows manage my Default printer" to off. <img src="/wp-content/uploads/2017/03/20170318_Win10PrinterSettings.png" class="alignnone size-medium wp-image-609" width="300" height="111" /> Or you can set the following registry key:

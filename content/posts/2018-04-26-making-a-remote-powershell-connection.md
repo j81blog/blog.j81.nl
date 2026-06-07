@@ -12,6 +12,8 @@ tags:
   - "Remote"
 aliases:
   - "/2018/04/26/making-a-remote-powershell-connection/"
+  - "/2018/04/26/making-a-remote-powershell-connection/feed/"
+  - "/2018/04/26/making-a-remote-powershell-connection/feed/index.html"
 ---
 
 In this article I will make a short description how to make a remote PowerShell connection. I needed this for a job once, tried to make a remote PowerShell connection from a Non Domain Joined machine to a Domain Joined server. I needed to re-configure the server first before making a connection. With the following code you can try and test the connection:

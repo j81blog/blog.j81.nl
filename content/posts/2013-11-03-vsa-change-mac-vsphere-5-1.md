@@ -8,6 +8,8 @@ categories:
   - "vSphere"
 aliases:
   - "/2013/11/03/vsa-change-mac-vsphere-5-1/"
+  - "/2013/11/03/vsa-change-mac-vsphere-5-1/feed/"
+  - "/2013/11/03/vsa-change-mac-vsphere-5-1/feed/index.html"
 ---
 
 1.  edit the vmx file **/vmfs/volumes/50bf4d82-31b73571-5543-001e4f378eac/MAS \# vi MAS.vmx**

@@ -14,6 +14,8 @@ tags:
   - "PowerShell"
 aliases:
   - "/2017/04/06/lets-encrypt-certificates-on-a-netscaler/"
+  - "/2017/04/06/lets-encrypt-certificates-on-a-netscaler/feed/"
+  - "/2017/04/06/lets-encrypt-certificates-on-a-netscaler/feed/index.html"
 ---
 
 For a while now it's possible to use [Let's Encrypt](https://letsencrypt.org/) certificates, they are trusted (cross signed), secure and most of all FREE! There are already a lot of tools available to generate these certificates. I haven't come across a tool or script to generate these certificates and upload them to a [Citrix NetScaler](https://www.citrix.com/netscaler). So I thought why not build it myself. I already tried it in a previous [attempt](https://blog.j81.nl/2016/07/03/generate-an-lets-encrypt-certificate-what-can-be-used-on-the-netscaler/), but I wanted more automation and thus I created this version. To learn more about the Let's Encrypt, check [how it works](https://letsencrypt.org/how-it-works/).. What my script does in very basic steps (for example you want a certificate for www.domain.com): Ask LE (Let's Encrypt) to validate "www.domain.com" **(1)** LE returns data **(2)** among them:

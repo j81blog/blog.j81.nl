@@ -7,6 +7,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2018/04/27/my-very-first-gui-tool-ctxtoolbox/"
+  - "/2018/04/27/my-very-first-gui-tool-ctxtoolbox/feed/"
+  - "/2018/04/27/my-very-first-gui-tool-ctxtoolbox/feed/index.html"
 ---
 
 When I started with C# in my spare time I needed a goal, something to build. I have several PowerShell scripts and wanted to add a GUI and so <a href="https://blog.j81.nl/ctxtoolbox/" target="_blank" rel="noopener">CtxToolbox</a> was born! So what to implement first? I started with the basics and worked up from there, and added the Drain functionality. The idea behind this functionality was born in an 24/7 hospital environment. At that time I was building a new XenDesktop 7.x infra for this customer. And when it went to production they needed a way to gradually get machines into maintenance mode to do maintenance without troubling the users. I created a PowerShell script where you could select the machine catalogs (we had a machine catalog per hyper-visor host) and "drain" them into maintenance mode

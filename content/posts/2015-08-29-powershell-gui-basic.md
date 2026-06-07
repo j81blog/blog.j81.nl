@@ -6,6 +6,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2015/08/29/powershell-gui-basic/"
+  - "/2015/08/29/powershell-gui-basic/feed/"
+  - "/2015/08/29/powershell-gui-basic/feed/index.html"
 ---
 
 ``` powershell

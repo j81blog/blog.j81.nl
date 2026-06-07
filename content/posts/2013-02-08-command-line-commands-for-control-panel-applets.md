@@ -6,6 +6,8 @@ categories:
   - "Windows"
 aliases:
   - "/2013/02/08/command-line-commands-for-control-panel-applets/"
+  - "/2013/02/08/command-line-commands-for-control-panel-applets/feed/"
+  - "/2013/02/08/command-line-commands-for-control-panel-applets/feed/index.html"
 ---
 
 <div id="by">

@@ -24,6 +24,8 @@ tags:
   - "PowerShell"
 aliases:
   - "/2021/10/28/manipulate-the-nameid-saml-content-part-1/"
+  - "/2021/10/28/manipulate-the-nameid-saml-content-part-1/feed/"
+  - "/2021/10/28/manipulate-the-nameid-saml-content-part-1/feed/index.html"
 ---
 
 Some companies want to allow other (guest) companies to connect to their environment and for example allow them to open a Citrix Desktop. This can be achieved by Connecting an existing Citrix environment to the guest company via SAML (and yes there are other possibilities). SAML is an authentication method based on a two-way trust. Two Microsoft products that can offer SAML authentication are ADFS (Active Directory Federation Services, an on-premises solution) and the other is and Enterprise App you can configure from the Azure portal. The other requirement is Citrix FAS (Federated Authentication Services). In this article I will show you a way to connect a guest (company) via SAML to allow them access to your Citrix environment without the need for adding the guest companies suffix to your domain. 

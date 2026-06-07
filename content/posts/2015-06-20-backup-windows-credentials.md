@@ -6,6 +6,8 @@ categories:
   - "Uncategorized"
 aliases:
   - "/2015/06/20/backup-windows-credentials/"
+  - "/2015/06/20/backup-windows-credentials/feed/"
+  - "/2015/06/20/backup-windows-credentials/feed/index.html"
 ---
 
 ``` batch

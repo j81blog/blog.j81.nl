@@ -6,6 +6,8 @@ categories:
   - "VBS"
 aliases:
   - "/2013/02/09/creating-ad-computer-accounts-from-a-csv/"
+  - "/2013/02/09/creating-ad-computer-accounts-from-a-csv/feed/"
+  - "/2013/02/09/creating-ad-computer-accounts-from-a-csv/feed/index.html"
 ---
 
 This is an updated script that creates computer accounts in Active Directory. This script uses a comma separated values file as an input instead of two text files.
