@@ -1,0 +1,24 @@
+{{ define "main" }}
+<div class="wrap">
+  <header class="page-head reveal">
+    <h1 class="kicker" style="margin-bottom:.9rem;">{{ .Section | default "log" }}</h1>
+    {{- with .Description }}<p class="desc">{{ . }}</p>{{ end }}
+    {{- with .Content }}<div class="desc prose">{{ . }}</div>{{ end }}
+  </header>
+
+  {{- $paginator := .Paginate .RegularPages.ByDate.Reverse }}
+  <div class="log reveal">
+    {{- range $paginator.Pages.GroupByDate "2006" }}
+    <div class="log-year">
+      <h2>{{ .Key }}</h2>
+      <span class="count">{{ len .Pages }} {{ if eq (len .Pages) 1 }}entry{{ else }}entries{{ end }}</span>
+    </div>
+    {{- range .Pages }}
+    {{ partial "site/log-row.html" . }}
+    {{- end }}
+    {{- end }}
+  </div>
+
+  {{ partial "site/pagination.html" $paginator }}
+</div>
+{{ end }}

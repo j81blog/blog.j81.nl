@@ -17,7 +17,6 @@ tags:
 aliases:
   - "/howto-netscaler-create-a-backup/"
 ---
-group: "NetScaler"
 
 A backup can save you a lot of time in case of emergencies, configuration errors or hacks. You could download and save it in a secure environment. And when needed restore a new appliance with the saved backup.
 

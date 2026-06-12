@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="wrap">
+  <header class="page-head reveal">
+    <h1 class="kicker" style="margin-bottom:.9rem;">{{ .Data.Singular }}</h1>
+    <h1>{{ .Title }}</h1>
+    <p class="desc mono">{{ len .Pages }} {{ if eq (len .Pages) 1 }}entry{{ else }}entries{{ end }} filed under this {{ .Data.Singular }}</p>
+  </header>
+
+  {{- $paginator := .Paginate .Pages.ByDate.Reverse }}
+  <div class="log reveal">
+    {{- range $paginator.Pages }}
+    {{ partial "site/log-row.html" . }}
+    {{- end }}
+  </div>
+
+  {{ partial "site/pagination.html" $paginator }}
+</div>
+{{ end }}

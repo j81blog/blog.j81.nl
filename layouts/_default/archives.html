@@ -1,0 +1,22 @@
+{{ define "main" }}
+{{- $entries := where site.RegularPages "Section" "in" (slice "posts" "howto") }}
+<div class="wrap">
+  <header class="page-head reveal">
+    <h1 class="kicker" style="margin-bottom:.9rem;">full index</h1>
+    <h1>{{ .Title }}</h1>
+    <p class="desc mono">{{ len $entries }} entries since {{ with index ($entries.ByDate) 0 }}{{ .Date.Format "2006" }}{{ end }}</p>
+  </header>
+
+  <div class="log reveal">
+    {{- range ($entries.ByDate.Reverse).GroupByDate "2006" }}
+    <div class="log-year">
+      <h2>{{ .Key }}</h2>
+      <span class="count">{{ len .Pages }} {{ if eq (len .Pages) 1 }}entry{{ else }}entries{{ end }}</span>
+    </div>
+    {{- range .Pages }}
+    {{ partial "site/log-row.html" . }}
+    {{- end }}
+    {{- end }}
+  </div>
+</div>
+{{ end }}

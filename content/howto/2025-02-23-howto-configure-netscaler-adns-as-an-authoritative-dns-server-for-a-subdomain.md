@@ -19,7 +19,6 @@ tags:
 aliases:
   - "/howto-configure-netscaler-adns-as-an-authoritative-dns-server-for-a-subdomain/"
 ---
-group: "NetScaler"
 
 In this HowTo article, we’ll walk through the complete process of configuring a Citrix NetScaler HA pair to serve as an authoritative DNS server for a subdomain. This step-by-step guide covers everything from setting up the Authoritative DNS (ADNS) service on the NetScaler to delegating the subdomain in the parent domain’s DNS management panel. Whether you’re looking to improve DNS resolution performance, gain more control over DNS records, or support advanced NetScaler features, this guide will help you get it done efficiently and securely.
 

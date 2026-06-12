@@ -17,7 +17,6 @@ tags:
 aliases:
   - "/howto-install-certificate-on-a-netscaler/"
 ---
-group: "NetScaler"
 
 In this how-to article I will explain the procedure how to install a new certificate on a Citrix NetScaler. Certificates are an important piece in a secure connection from a client to a server.
 

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#0A2E50"/>
+  <rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="#1C7CD5" stroke-opacity=".55" stroke-width="2"/>
+  <text x="8" y="46" font-family="JetBrains Mono, Consolas, monospace" font-size="34" font-weight="700" fill="#6BB9E8">&gt;</text>
+  <text x="30" y="46" font-family="JetBrains Mono, Consolas, monospace" font-size="34" font-weight="700" fill="#4CAF50">_</text>
+</svg>

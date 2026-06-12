@@ -1,0 +1,17 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2012–{{ now.Format "2006" }} {{ site.Params.author.name }}</span>
+    <span>notes from the field</span>
+    <div class="foot-right">
+      {{- range site.Params.author.links }}
+        {{- range $k, $v := . }}
+      <a href="{{ $v }}" target="_blank" rel="noopener">{{ $k }}</a>
+        {{- end }}
+      {{- end }}
+      {{- with site.Home.OutputFormats.Get "rss" }}
+      <a href="{{ .RelPermalink }}">rss</a>
+      {{- end }}
+      <a href="#" class="up" id="back-to-top">top</a>
+    </div>
+  </div>
+</footer>

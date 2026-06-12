@@ -20,7 +20,6 @@ tags:
 aliases:
   - "/howto-export-certificate-pfx/"
 ---
-group: "Windows"
 
 Certificates are an important part of a modern environment. They make communication safer by encrypting the traffic between the client and server. A safe way to move certificates between servers or store them safely is by exporting the certificate (private and public key) to an encrypted format. A commonly used format is "pfx" (Personal Information Exchange also known as PKCS#12). A pfx file can contain one or more certificates and is encrypted with a password. Without the correct password the pfx is useless. You commonly see that a pfx contains a (web) server certificate and one or more intermediate certificate(s) and a root certificate.
 

@@ -18,7 +18,6 @@ tags:
 aliases:
   - "/howto-cleanup/"
 ---
-group: "NetScaler"
 
 Before you start an upgrade. You must make sure to have enough free space available. Although in the GUI you see sometimes that you must have 5 GB available, in my experience you need at least 6,5 GB free space.
 

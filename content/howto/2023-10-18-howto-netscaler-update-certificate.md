@@ -17,7 +17,6 @@ tags:
 aliases:
   - "/howto-netscaler-update-certificate/"
 ---
-group: "NetScaler"
 
 In this how-to article I will explain the procedure how to update a certificate on a Citrix NetScaler. If you wait until a certificate is expired wil cause a lot of issues for your users or visitors. By being on time with the renewal will save you a lot of trouble.
 

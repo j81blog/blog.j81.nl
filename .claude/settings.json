@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(hugo *)",
+      "Bash(hugo)",
+      "Bash(npm run build *)",
+      "Bash(npm run build)",
+      "PowerShell(hugo *)",
+      "PowerShell(hugo)",
+      "PowerShell(Get-ChildItem *)",
+      "PowerShell(Set-Location *)",
+      "PowerShell(Start-Sleep *)",
+      "PowerShell(Select-String *)",
+      "PowerShell(Get-Content *)",
+      "PowerShell(Test-Path *)"
+    ]
+  }
+}

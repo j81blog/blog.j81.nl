@@ -1,0 +1,10 @@
+{{- /* One post rendered as a log row. Context: a Page. */ -}}
+<a class="log-row" href="{{ .RelPermalink }}">
+  <time class="log-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+  <span class="log-title">{{ .Title }}</span>
+  {{- with .Params.tags }}
+  <span class="log-tags" aria-hidden="true">
+    {{- range first 2 . }}<span>{{ . }}</span>{{ end -}}
+  </span>
+  {{- end }}
+</a>

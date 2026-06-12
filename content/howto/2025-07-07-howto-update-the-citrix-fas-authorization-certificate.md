@@ -17,7 +17,6 @@ tags:
 aliases:
   - "/howto-update-the-citrix-fas-authorization-certificate/"
 ---
-group: "Citrix FAS"
 
 When you are using Citrix FAS you will also have a Authorization Certificate. Without this certificate Citrix FAS would not be able to function. The same is applicable when the Authorization Certificate is expired, FAS can no longer do it's job. When the Authorization Certificate is expired users are no longer able to login. Because FAS cannot request new smartcard certificates for a user.
 

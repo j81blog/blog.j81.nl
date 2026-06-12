@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div class="wrap">
+  <header class="page-head reveal">
+    <h1 class="kicker" style="margin-bottom:.9rem;">grep the log</h1>
+    <h1>{{ .Title }}</h1>
+  </header>
+
+  <div class="reveal">
+    <div class="search-box">
+      <span class="prompt" aria-hidden="true">PS C:\&gt;</span>
+      <input type="search" id="search-input" placeholder="Select-String -Pattern &quot;netscaler&quot;" autocomplete="off" autofocus aria-label="Search the site">
+    </div>
+    <p class="search-meta" id="search-meta">type to search {{ len (where site.RegularPages "Section" "in" (slice "posts" "howto")) }} entries…</p>
+    <div class="log" id="search-results" aria-live="polite"></div>
+  </div>
+</div>
+
+{{ $searchJs := resources.Get "js/search.js" | minify | fingerprint }}
+{{ $indexUrl := "" }}
+{{ with site.Home.OutputFormats.Get "json" }}{{ $indexUrl = .RelPermalink }}{{ end }}
+<script src="{{ $searchJs.RelPermalink }}" integrity="{{ $searchJs.Data.Integrity }}" data-index="{{ $indexUrl }}" defer></script>
+{{ end }}

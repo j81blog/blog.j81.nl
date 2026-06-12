@@ -1,0 +1,59 @@
+{{ define "main" }}
+{{- $posts := where site.RegularPages "Section" "posts" }}
+{{- $howto := where site.RegularPages "Section" "howto" }}
+{{- $oldest := index ($posts.ByDate) 0 }}
+
+<section class="hero wrap">
+  <div class="hero-grid reveal">
+    <div>
+      <p class="hero-kicker">notes from the field</p>
+      <h1>John <span class="accent">Billekens</span></h1>
+      <p class="hero-sub">{{ site.Params.author.bio }} — {{ site.Params.author.headline }}.
+        This blog is my public engineering notebook: fixes, scripts and how-tos
+        written down so I don't have to remember them. Maybe they help you too.</p>
+      <div class="hero-links">
+        <a class="btn btn-primary" href="/posts/">Read the log</a>
+        <a class="btn" href="/howto/">HowTo guides</a>
+        <a class="btn" href="/about/">About me</a>
+      </div>
+    </div>
+
+    <aside aria-label="Site status">
+      <div class="session">
+        <div class="session-bar">session — blog.j81.nl</div>
+        <div class="session-body">
+          <dl>
+            <div class="session-row"><dt>operator</dt><dd>{{ site.Params.author.name }}</dd></div>
+            <div class="session-row"><dt>role</dt><dd>Technical Consultant · EUC</dd></div>
+            <div class="session-row"><dt>focus</dt><dd>{{ site.Params.author.headline }}</dd></div>
+            <div class="session-row"><dt>logging since</dt><dd>{{ with $oldest }}{{ .Date.Format "2006" }}{{ else }}2012{{ end }}</dd></div>
+            <div class="session-row"><dt>entries</dt><dd>{{ len $posts }} posts · {{ len $howto }} guides</dd></div>
+            <div class="session-row"><dt>status</dt><dd><span class="ok">[ OK ]</span> field notes incoming</dd></div>
+          </dl>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2 class="kicker">latest entries</h2>
+  <div class="log reveal">
+    {{- range first (site.Params.homepage.showRecentItems | default 10) $posts.ByDate.Reverse }}
+    {{ partial "site/log-row.html" . }}
+    {{- end }}
+  </div>
+  <nav class="pagination" aria-label="More posts">
+    <a href="/posts/" style="min-width:auto; padding-inline:1rem;">all posts →</a>
+  </nav>
+</section>
+
+<section class="wrap" style="padding-bottom: 2rem;">
+  <h2 class="kicker">topics</h2>
+  <div class="term-grid">
+    {{- range first 18 site.Taxonomies.categories.ByCount }}
+    <a class="tag" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}<span class="n">{{ .Count }}</span></a>
+    {{- end }}
+  </div>
+</section>
+{{ end }}

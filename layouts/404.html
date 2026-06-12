@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="wrap err-wrap reveal">
+  <div class="err-code">404</div>
+  <p class="err-line">
+    PS C:\&gt; Get-Content <span id="err-path">/requested/page</span><br>
+    Get-Content : Cannot find path <span class="red">[ FAIL ]</span><br>
+    PS C:\&gt; Get-Suggestion -Fallback <span class="ok">[ OK ]</span>
+  </p>
+  <div class="hero-links">
+    <a class="btn btn-primary" href="{{ site.Home.RelPermalink }}">Back to base</a>
+    <a class="btn" href="/posts/">Browse the log</a>
+    <a class="btn" href="/search/">Search instead</a>
+  </div>
+</div>
+<script>
+  (function () {
+    var el = document.getElementById('err-path');
+    if (el) el.textContent = location.pathname;
+  })();
+</script>
+{{ end }}

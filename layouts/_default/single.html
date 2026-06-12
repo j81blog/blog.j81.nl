@@ -1,0 +1,95 @@
+{{ define "main" }}
+{{- $isLog := or (eq .Section "posts") (eq .Section "howto") }}
+
+{{- if $isLog }}<div class="progress" aria-hidden="true"></div>{{ end }}
+
+<div class="wrap">
+  <header class="article-head reveal">
+    {{- if $isLog }}
+    <div class="article-meta">
+      <span><span class="dot-ok" aria-hidden="true"></span>{{ .Date.Format "2006-01-02" }}</span>
+      {{- if and .Lastmod (ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}
+      <span class="sep">/</span><span>updated {{ .Lastmod.Format "2006-01-02" }}</span>
+      {{- end }}
+      <span class="sep">/</span><span>{{ .ReadingTime }} min read</span>
+      {{- with .Params.categories }}
+      <span class="sep">/</span>
+      <span>
+        {{- range $i, $c := first 3 . }}{{ if $i }}, {{ end }}<a href="{{ printf "/categories/%s/" ($c | urlize) }}">{{ $c }}</a>{{ end -}}
+      </span>
+      {{- end }}
+    </div>
+    {{- end }}
+    {{- if $isLog }}
+    <h1>{{ .Title }}</h1>
+    {{- else }}
+    <h1 class="kicker" style="margin-bottom:.9rem;">{{ .Title }}</h1>
+    {{- end }}
+    {{- with .Params.featureimage }}
+    <figure class="article-feature">
+      <img src="{{ . }}" alt="{{ $.Title }}" loading="eager">
+    </figure>
+    {{- end }}
+  </header>
+
+  {{- $hasToc := and $isLog (ne .TableOfContents "<nav id=\"TableOfContents\"></nav>") (ne .TableOfContents "") }}
+  <div class="article-layout">
+    <div>
+      <article class="prose">
+        {{ .Content }}
+      </article>
+
+      <div class="article-foot">
+        {{- with .Params.tags }}
+        <div class="tag-list">
+          {{- range . }}
+          <a class="tag" href="{{ printf "/tags/%s/" (. | urlize) }}">{{ . }}</a>
+          {{- end }}
+        </div>
+        {{- end }}
+
+        {{- if $isLog }}
+        {{- $related := site.RegularPages.Related . | first 3 }}
+        {{- with $related }}
+        <section class="related">
+          <h2 class="kicker">related entries</h2>
+          <div class="related-list log">
+            {{- range . }}
+            {{ partial "site/log-row.html" . }}
+            {{- end }}
+          </div>
+        </section>
+        {{- end }}
+
+        {{- if or .PrevInSection .NextInSection }}
+        <nav class="pager" aria-label="Adjacent posts">
+          {{- with .PrevInSection }}
+          <a href="{{ .RelPermalink }}"><span class="dir">← older</span><span class="t">{{ .Title }}</span></a>
+          {{- else }}<span class="spacer"></span>{{ end }}
+          {{- with .NextInSection }}
+          <a class="next" href="{{ .RelPermalink }}"><span class="dir">newer →</span><span class="t">{{ .Title }}</span></a>
+          {{- else }}<span class="spacer"></span>{{ end }}
+        </nav>
+        {{- end }}
+
+        {{- if and (site.Params.article.showComments) site.Params.comments.giscus.repo }}
+        <section class="comments">
+          <h2 class="kicker">comments</h2>
+          {{ partial "comments.html" . }}
+        </section>
+        {{- end }}
+        {{- end }}
+      </div>
+    </div>
+
+    {{- if $hasToc }}
+    <aside class="article-aside">
+      <div class="toc">
+        <div class="toc-label">On this page</div>
+        {{ .TableOfContents }}
+      </div>
+    </aside>
+    {{- end }}
+  </div>
+</div>
+{{ end }}

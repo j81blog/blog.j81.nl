@@ -16,7 +16,6 @@ tags:
 aliases:
   - "/howto-netscaler-upgrade-firmware/"
 ---
-group: "NetScaler"
 
 Upgrading firmware on time is crucial for the business continuity. Especially when new firmware become available containing fixes for high CVE's we have seen recently.
 
