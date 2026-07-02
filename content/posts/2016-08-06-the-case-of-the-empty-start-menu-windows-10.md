@@ -5,7 +5,6 @@ lastmod: 2020-05-23T21:44:57Z
 categories:
   - "ONE Workspace"
   - "RES"
-  - "Uncategorized"
 tags:
   - "7.9"
   - "PowerShell"
@@ -13,7 +12,6 @@ tags:
   - "RES ONE Workspace"
   - "Start menu"
   - "Windows 10"
-  - "Workspace"
   - "XenDesktop"
 aliases:
   - "/2016/08/06/the-case-of-the-empty-start-menu-windows-10/"
@@ -25,7 +23,7 @@ During a project I'm currently working on, with Windows 10, Citrix Xendesktop 7.
 
 ``` powershell
 <#
-.SYNOPSIS  
+.SYNOPSIS
     Restore pinned items in Winows 10 Start Menu.
 .DESCRIPTION
     This script was build to (temporarily) fix a issue with RES Workspace and pinning items in the Start menu of Windows 10.
@@ -88,7 +86,7 @@ $iBreak=0
     }
     if ($iBreak -ge 10) {
         Throw "ShellExperienceHost wasn't running on time"
-    } 
+    }
     # Specify the exported file (when not using RES Workspace, copy the exported start layout file in xml format locally first)
     $tilefile="$($env:LOCALAPPDATA)\RES\WM\$($oOutput.SessionId)\WMTileFile.xml"
     if (test-path $tilefile) {
