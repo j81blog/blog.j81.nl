@@ -1,7 +1,7 @@
 ﻿---
 title: "Introducing: Workspace Optimizer"
-date: 2026-07-03T20:00:00Z
-lastmod: 2026-07-03T20:00:00Z
+date: 2026-07-02T20:00:00Z
+lastmod: 2026-07-02T20:00:00Z
 featureimage: ""
 categories:
   - "VDI"
