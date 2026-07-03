@@ -169,6 +169,12 @@ Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser -Force
 
 This is the most basic command. It will pick up the `Windows.xml` template and execute all the items.
 
+![Running the script](image-03.png)
+
+When the script finishes, and the last task is not excluded, the machine will shut down.
+
+![Finishing the script](image-04.png)
+
 You can run the following command to see some more examples:
 
 ```PowerShell
