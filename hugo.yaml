@@ -67,6 +67,13 @@ params:
     cardView: true
     cardViewScreenWidth: false
 
+  comments:
+    giscus:
+      repo: "j81blog/blog.j81.nl"
+      repoID: "R_kgDOSh6CyA"
+      category: "Announcements"
+      categoryID: "DIC_kwDOSh6CyM4DAi3I"
+
   article:
     showDate: true
     showDateUpdated: true

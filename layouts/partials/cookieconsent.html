@@ -4,6 +4,20 @@
 <script type="module">
     import '/js/cookieconsent.umd.js';
 
+    /* Load Clarity in cookieless mode by default: anonymized, aggregate data
+       with no tracking cookies until the visitor accepts the analytics category. */
+    (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "xho8j2gl6m");
+    /* Start without cookie consent; upgraded to full mode on opt-in below. */
+    window.clarity("consent", false);
+
+    function setClarityConsent(granted) {
+        if (window.clarity) window.clarity("consent", granted);
+    }
+
     CookieConsent.run({
         guiOptions: {
             consentModal: {
@@ -23,6 +37,30 @@
             },
             functional: {
                 enabled: false
+            },
+            analytics: {
+                enabled: false,
+                autoClear: {
+                    cookies: [
+                        { name: /^_clck/ },
+                        { name: /^_clsk/ },
+                        { name: /^CLID/ },
+                        { name: /^ANONCHK/ },
+                        { name: /^MR/ },
+                        { name: /^MUID/ },
+                        { name: /^SM/ }
+                    ]
+                }
+            }
+        },
+
+        onConsent: function ({ cookie }) {
+            setClarityConsent(cookie.categories.includes("analytics"));
+        },
+
+        onChange: function ({ cookie, changedCategories }) {
+            if (changedCategories.includes("analytics")) {
+                setClarityConsent(cookie.categories.includes("analytics"));
             }
         },
 
@@ -32,7 +70,7 @@
                 nl: {
                     consentModal: {
                         title: "Cookies op deze site",
-                        description: "Deze site gebruikt functionele cookies voor reacties via Giscus (GitHub Discussions). Noodzakelijke cookies zorgen voor de basisfuncties van de site.",
+                        description: "Deze site gebruikt functionele cookies voor reacties via Giscus (GitHub Discussions) en analytische cookies (Microsoft Clarity) om het gebruik te verbeteren. Noodzakelijke cookies zorgen voor de basisfuncties van de site.",
                         acceptAllBtn: "Alles accepteren",
                         rejectAllBtn: "Alleen noodzakelijk",
                         showPreferencesBtn: "Voorkeuren beheren",
@@ -53,6 +91,11 @@
                                 title: "Functioneel (Reacties)",
                                 description: "Giscus laadt reacties via GitHub Discussions. Hiervoor plaatst GitHub cookies. Accepteer om reacties te kunnen lezen en plaatsen.",
                                 linkedCategory: "functional"
+                            },
+                            {
+                                title: "Analytisch (Microsoft Clarity)",
+                                description: "Microsoft Clarity verzamelt standaard geanonimiseerde, cookieloze gebruiksstatistieken om de site te verbeteren. Als u dit accepteert, plaatst Microsoft daarnaast cookies voor uitgebreidere analyse en sessieopnames.",
+                                linkedCategory: "analytics"
                             }
                         ]
                     }

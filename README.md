@@ -177,20 +177,53 @@ All inline image references in content files have been updated to point to origi
 
 ## Giscus comments
 
-Comments use [Giscus](https://giscus.app) (GitHub Discussions). To activate:
-
-1. Enable Discussions on this GitHub repo
-2. Go to [giscus.app](https://giscus.app), select the repo, copy `data-repo-id` and `data-category-id`
-3. Add to `hugo.yaml`:
+Comments use [Giscus](https://giscus.app) (GitHub Discussions), configured in
+`hugo.yaml`:
 
 ```yaml
 params:
+  article:
+    showComments: true          # global on/off switch
   comments:
-    enabled: true
-    provider: giscus
     giscus:
-      repo: j81blog/blog.j81.nl
-      repoID: "YOUR_REPO_ID"
+      repo: "j81blog/blog.j81.nl"
+      repoID: "R_kgDOSh6CyA"
       category: "Announcements"
-      categoryID: "YOUR_CATEGORY_ID"
+      categoryID: "DIC_kwDOSh6CyM4DAi3I"
 ```
+
+Prerequisites (already done for this repo): the repo is public, the
+[giscus GitHub App](https://github.com/apps/giscus) is installed, and
+Discussions is enabled with an **Announcements**-type category. To regenerate
+the IDs, visit [giscus.app](https://giscus.app), select the repo and category,
+and copy `data-repo-id` / `data-category-id` from the generated snippet.
+
+**Where comments appear:** automatically at the bottom of every `posts` and
+`howto` entry (mapped per URL via `data-mapping="pathname"`, so each post gets
+its own discussion thread). Regular pages never show comments.
+
+### Turning comments on/off
+
+There are two switches:
+
+| Level | Setting | Value | Effect |
+| --- | --- | --- | --- |
+| **Whole site** | `params.article.showComments` in `hugo.yaml` | `true` | Comments enabled site-wide (default) |
+| | | `false` | Comments hidden on all posts |
+| **Single post** | `comments` in the post's front matter | *(omitted)* | Inherits the site default — comments show |
+| | | `false` | Comments hidden on this post only |
+
+Per-post is opt-out: comments are on unless a post sets `comments: false`.
+Setting `comments: true` on a post is allowed but has no extra effect (it is
+already the default). To disable comments for one post:
+
+```yaml
+---
+title: My post
+comments: false
+---
+```
+
+**Cookie consent:** Giscus loads GitHub cookies, so it only initializes after
+the visitor accepts the *functional* cookie category in the consent bar
+(see `layouts/partials/cookieconsent.html`).

@@ -72,7 +72,7 @@
         </nav>
         {{- end }}
 
-        {{- if and (site.Params.article.showComments) site.Params.comments.giscus.repo }}
+        {{- if and (site.Params.article.showComments) (ne .Params.comments false) site.Params.comments.giscus.repo }}
         <section class="comments">
           <h2 class="kicker">comments</h2>
           {{ partial "comments.html" . }}
